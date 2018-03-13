@@ -1,4 +1,5 @@
-node-assets := $(addprefix assets/, purecss font-awesome rellax)
+# add assets/<node-asset> to .gitignore too
+node-assets := $(addprefix assets/, purecss rellax)
 surge := node node_modules/surge/lib/cli.js
 
 .PHONY: deploy yarn assets jekyll htmlproofer serve clean

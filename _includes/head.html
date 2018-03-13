@@ -13,7 +13,6 @@
 
   <link rel="stylesheet" href="{{ 'assets/purecss/build/pure-min.css' | relative_url }}">
   <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ 'assets/font-awesome/css/font-awesome.min.css' | relative_url }}">
 
   {% for css in page.css %}
     <link rel="stylesheet" href="{{ css | relative_url }}">
@@ -21,5 +20,7 @@
 
   <!-- Use Jekyll SEO plugin -->
   {% seo %}
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
 </head>
