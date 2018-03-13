@@ -1,0 +1,14 @@
+.jekyll-metadata
+.sass-cache
+.bundle
+
+assets/font-awesome
+assets/purecss
+assets/rellax
+
+yarn-error.log
+Gemfile.lock
+
+node_modules
+vendor
+_site

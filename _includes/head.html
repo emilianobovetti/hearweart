@@ -1,0 +1,25 @@
+<head>
+
+  <title>
+    {% if page.title %}
+      {{ site.title }} | {{ page.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="{{ 'assets/purecss/build/pure-min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/font-awesome/css/font-awesome.min.css' | relative_url }}">
+
+  {% for css in page.css %}
+    <link rel="stylesheet" href="{{ css | relative_url }}">
+  {% endfor %}
+
+  <!-- Use Jekyll SEO plugin -->
+  {% seo %}
+
+</head>

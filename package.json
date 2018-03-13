@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "purecss": "^1.0.0",
+    "rellax": "^1.6.0",
+    "surge": "^0.20.1"
+  }
+}

@@ -1,0 +1,19 @@
+-
+  name: What is Hearweart
+  route: what-is-hearweart
+-
+  name: 2017 pilot project
+  route: the-program
+  childs:
+    -
+      name: 2017 gallery
+      route: hearweart-in-action
+-
+  name: Who we are
+  route: who-we-are
+-
+  name: Contact us
+  route: contact-us
+-
+  name: Please donate
+  route: please-donate

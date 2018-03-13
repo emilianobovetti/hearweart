@@ -1,0 +1,30 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+$sm-width: 568px;
+$md-width: 768px;
+$lg-width: 1024px;
+$xl-width: 1280px;
+
+$assets-path: "{{ 'assets' | relative_url }}";
+
+@function asset-url($asset) {
+  @return url("#{$assets-path}/#{$asset}");
+}
+
+{% for style in site.data.style %}
+  ${{ style.name }}: {{ style.value }};
+{% endfor %}
+
+.content-container {
+  margin: 0 auto;
+  max-width: 850px;
+  padding: 10px 30px;
+}
+
+@import
+  "_sass/_hamburger.scss",
+  "_sass/_header.scss",
+  "_sass/_footer.scss",
+  "_sass/_home.scss";

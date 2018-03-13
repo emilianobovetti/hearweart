@@ -1,0 +1,17 @@
+sudo: false
+
+language: ruby
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+script:
+  - make
+
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: _site
+  on: master

@@ -1,0 +1,33 @@
+
+{% if menu_children %}
+<ul class="pure-menu-children">
+{% else %}
+<ul class="pure-menu-list">
+{% endif %}
+
+  {% for item in menu_items %}
+
+    {% assign items_has_child = "" %}
+    {% if item.childs  %}
+      {% assign items_has_child = "pure-menu-allow-hover pure-menu-has-children" %}
+    {% endif %}
+
+    {% assign item_selected = "" %}
+    {% if page.name contains item.route %}
+      {% assign item_selected = "pure-menu-selected" %}
+    {% endif %}
+
+    <li class="pure-menu-item {{ items_has_child }} {{ item_selected }}">
+
+      <a href="{{ item.route | relative_url }}" class="pure-menu-link">
+        {{ item.name }}
+      </a>
+
+      {% if item.childs %}
+        {% assign menu_items = item.childs %}
+        {% assign menu_children = true %}
+        {% include menu-items.html %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
