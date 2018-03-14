@@ -5,13 +5,7 @@
   position: relative;
   z-index: 2;
 
-  h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
-    color: $orange
-  }
-
   em {
-    color: $orange;
     font-size: 30px;
     font-style: normal;
   }
@@ -60,7 +54,7 @@
 .home-section-4 {
   border-top: 10px solid white;
   border-bottom: 200px solid white;
-  background: $orange;
+  background: $dark-orange;
   color: white;
   min-height: 0;
   padding: 50px 0;

@@ -1,0 +1,15 @@
+.please-donate {
+  background-image: asset-url("img/donate-background.jpg");
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 100px 30px;
+}
+
+.please-donate p {
+  font-size: 45px;
+  color: white;
+}
+
+.please-donate strong {
+  color: #fff000;
+}

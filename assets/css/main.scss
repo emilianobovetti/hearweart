@@ -17,14 +17,12 @@ $assets-path: "{{ 'assets' | relative_url }}";
   ${{ style.name }}: {{ style.value }};
 {% endfor %}
 
-.content-container {
-  margin: 0 auto;
-  max-width: 850px;
-  padding: 10px 30px;
-}
-
 @import
+  "_sass/_general.scss",
   "_sass/_hamburger.scss",
   "_sass/_header.scss",
   "_sass/_footer.scss",
-  "_sass/_home.scss";
+  "_sass/_gallery.scss",
+  "_sass/_home.scss",
+  "_sass/_contact-us.scss",
+  "_sass/_please-donate.scss";

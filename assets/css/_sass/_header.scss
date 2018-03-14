@@ -1,6 +1,10 @@
 .site-header {
-  height: 65px;
-  border-bottom: 2px solid $orange;
+  height: 85px;
+  border-top: 2px solid $dark-orange;
+  border-bottom: 2px solid $dark-orange;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  background: white;
 }
 
 .menu-heading {
@@ -8,19 +12,19 @@
   margin: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: $orange;
+  color: $dark-orange;
   font-weight: bold;
 }
 
 #menu {
+  transform: translateX(-101%);
   position: absolute;
+  height: 100vh;
   top: 0;
   left: 0;
-  height: 100vh;
-  transform: translateX(-101%);
   background: #eee;
-  text-align: center;
   z-index: 10;
+  text-align: center;
 }
 
 #menu.opened {
@@ -30,11 +34,16 @@
 
 .pure-menu-list {
   margin-top: 40px;
-  width: 100vw;
+  margin: 0 auto;
+  width: 100%;
 }
 
-#menu .pure-menu-item {
+#menu .pure-menu-item,
+.heading-social {
+  text-align: center;
   display: block;
+  width: 190px;
+  margin: 0 auto;
 }
 
 .pure-menu-item:before {
@@ -74,7 +83,6 @@
   bottom: 15px;
   right: 10px;
   z-index: 20;
-  float: right;
 }
 
 .header-placeholder {
@@ -89,7 +97,6 @@
     width: 100vw;
     height: $xl-header-height;
     z-index: 10;
-    border-top: 2px solid $orange;
     background: white;
   }
 
@@ -105,15 +112,20 @@
 
   #menu .pure-menu-item {
     display: inline-block;
-    margin: 0 20px;
   }
 
   #nav-toggle {
     display: none;
   }
 
+  .pure-menu-list,
+  .heading-social {
+    position: relative;
+    top: $xl-header-height - 39px;
+    left: 20px;
+  }
+
   .pure-menu-list {
-    margin-top: $xl-header-height - 39px;
     width: auto;
   }
 
