@@ -1,7 +1,17 @@
-#aniimated-thumbnials {
-  columns: 155px;
+.gallery {
+  columns: 145px;
 }
 
-#aniimated-thumbnials a {
-  margin: 3px;
+.gallery a {
+  margin: 1px;
+}
+
+@media screen and (min-width: $sm-width) {
+  .gallery {
+    columns: 155px;
+  }
+
+  .gallery a {
+    margin: 3px;
+  }
 }

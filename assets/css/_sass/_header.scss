@@ -8,11 +8,11 @@
 }
 
 .menu-heading {
+  position: absolute;
+  left: 20px;
+  top: 20px;
   display: block;
-  margin: 20px;
-  text-transform: uppercase;
   text-decoration: none;
-  color: $dark-orange;
   font-weight: bold;
 }
 
@@ -20,6 +20,7 @@
   transform: translateX(-101%);
   position: absolute;
   height: 100vh;
+  font-size: 16px;
   top: 0;
   left: 0;
   background: #eee;
@@ -38,12 +39,22 @@
   width: 100%;
 }
 
-#menu .pure-menu-item,
-.heading-social {
+.pure-menu-list > .pure-menu-item,
+.heading-social,
+.menu-heading {
   text-align: center;
   display: block;
-  width: 190px;
   margin: 0 auto;
+}
+
+.pure-menu-list > .pure-menu-item {
+  width: 200px;
+}
+
+.pure-menu-active > .pure-menu-link,
+.pure-menu-link:focus,
+.pure-menu-link:hover {
+  background: none;
 }
 
 .pure-menu-item:before {
@@ -52,7 +63,7 @@
   position: absolute;
   left: 50%;
   width: $width;
-  margin-left: - ($width / 2);
+  margin-left: -($width / 2);
   display: block;
   content: "";
   background: #333;
@@ -63,8 +74,19 @@
   display: none;
 }
 
+.menu-heading,
+.pure-menu-link,
+.pure-menu-selected .pure-menu-link,
+.pure-menu-selected .pure-menu-link:visited {
+  color: $dark-orange;
+}
+
+.pure-menu-selected > .pure-menu-link,
+.pure-menu-selected > .pure-menu-link:visited {
+  color: darken($dark-orange, 10%);
+}
+
 .pure-menu-link {
-  text-transform: uppercase;
   padding: 20px 0;
 }
 
@@ -80,13 +102,25 @@
 
 #nav-toggle {
   position: relative;
-  bottom: 15px;
   right: 10px;
+  top: 40px;
   z-index: 20;
 }
 
 .header-placeholder {
   display: none;
+}
+
+.fa-twitter {
+  color: desaturate($light-blue, 20%);
+}
+
+.fa-facebook-f {
+  color: desaturate($dark-blue, 20%);
+}
+
+.fa-envelope {
+  color: desaturate($medium-orange, 20%);
 }
 
 @media screen and (min-width: $xl-width) {
@@ -110,8 +144,10 @@
     height: 0;
   }
 
-  #menu .pure-menu-item {
+  .pure-menu-list > .pure-menu-item {
     display: inline-block;
+    margin: 0 20px;
+    width: auto;
   }
 
   #nav-toggle {
@@ -122,7 +158,6 @@
   .heading-social {
     position: relative;
     top: $xl-header-height - 39px;
-    left: 20px;
   }
 
   .pure-menu-list {

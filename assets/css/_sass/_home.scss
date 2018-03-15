@@ -1,6 +1,6 @@
 .home-section {
   transform: translate3d(0, 0, 0);
-  min-height: 100vh;
+  min-height: 600px;
   background: white;
   position: relative;
   z-index: 2;
@@ -54,7 +54,7 @@
 .home-section-4 {
   border-top: 10px solid white;
   border-bottom: 200px solid white;
-  background: $dark-orange;
+  background: $medium-orange;
   color: white;
   min-height: 0;
   padding: 50px 0;
