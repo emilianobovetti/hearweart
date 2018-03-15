@@ -1,8 +1,19 @@
+empty :=
+comma := ,
+space := $(empty) $(empty)
 # add assets/<node-asset> to .gitignore too
-node-assets := $(addprefix assets/, purecss rellax)
+node-assets := $(addprefix assets/, purecss rellax photoswipe)
 surge := node node_modules/surge/lib/cli.js
 
 .PHONY: deploy yarn assets jekyll htmlproofer serve clean
+
+define addslashes
+	$(addprefix /,$(addsuffix /,$(1)))
+endef
+
+define space2comma
+	$(subst $(space),$(comma),$(1))
+endef
 
 all : jekyll htmlproofer
 
@@ -23,7 +34,11 @@ jekyll : assets
 	@bundle exec jekyll build
 
 htmlproofer :
-	@bundle exec htmlproofer _site --disable-external --assume-extension
+	bundle exec htmlproofer _site \
+		--file-ignore $(call space2comma,$(call addslashes,$(node-assets))) \
+		--disable-external \
+		--assume-extension \
+		--check-html
 
 serve : jekyll
 	@bundle exec jekyll serve
