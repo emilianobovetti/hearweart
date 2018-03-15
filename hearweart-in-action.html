@@ -1,73 +1,34 @@
 ---
-layout: default
+layout: page
 title: 2017 Gallery
+css: ['assets/lightgallery.js/dist/css/lightgallery.min.css']
 ---
 
-<div class="gallery-row">
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 0" src="{{ 'assets/gallery/2017-0.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 1" src="{{ 'assets/gallery/2017-1.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 2" src="{{ 'assets/gallery/2017-2.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 3" src="{{ 'assets/gallery/2017-3.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 4" src="{{ 'assets/gallery/2017-4.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 5" src="{{ 'assets/gallery/2017-5.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 6" src="{{ 'assets/gallery/2017-6.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 7" src="{{ 'assets/gallery/2017-7.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 8" src="{{ 'assets/gallery/2017-8.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 9" src="{{ 'assets/gallery/2017-9.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 10" src="{{ 'assets/gallery/2017-10.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 11" src="{{ 'assets/gallery/2017-11.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 12" src="{{ 'assets/gallery/2017-12.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 13" src="{{ 'assets/gallery/2017-13.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 14" src="{{ 'assets/gallery/2017-14.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 15" src="{{ 'assets/gallery/2017-15.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 16" src="{{ 'assets/gallery/2017-16.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 17" src="{{ 'assets/gallery/2017-17.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 18" src="{{ 'assets/gallery/2017-18.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 19" src="{{ 'assets/gallery/2017-19.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 20" src="{{ 'assets/gallery/2017-20.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 21" src="{{ 'assets/gallery/2017-21.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 22" src="{{ 'assets/gallery/2017-22.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 23" src="{{ 'assets/gallery/2017-23.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 24" src="{{ 'assets/gallery/2017-24.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 25" src="{{ 'assets/gallery/2017-25.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 26" src="{{ 'assets/gallery/2017-26.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 27" src="{{ 'assets/gallery/2017-27.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 28" src="{{ 'assets/gallery/2017-28.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 29" src="{{ 'assets/gallery/2017-29.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 30" src="{{ 'assets/gallery/2017-30.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 31" src="{{ 'assets/gallery/2017-31.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 32" src="{{ 'assets/gallery/2017-32.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 33" src="{{ 'assets/gallery/2017-33.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 34" src="{{ 'assets/gallery/2017-34.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 35" src="{{ 'assets/gallery/2017-35.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 36" src="{{ 'assets/gallery/2017-36.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 37" src="{{ 'assets/gallery/2017-37.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 38" src="{{ 'assets/gallery/2017-38.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 39" src="{{ 'assets/gallery/2017-39.jpg' | relative_url }}">
-  </div>
-  <div class="gallery-column">
-    <img alt="Hear We Art gallery - 40" src="{{ 'assets/gallery/2017-40.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 41" src="{{ 'assets/gallery/2017-41.jpg' | relative_url }}">
-    <img alt="Hear We Art gallery - 42" src="{{ 'assets/gallery/2017-42.jpg' | relative_url }}">
-  </div>
+<div id="aniimated-thumbnials">
+{% for file in site.static_files %}
+  {% if file.path contains 'assets/gallery/2017/full' %}
+
+    {% assign full_url = file.path | relative_url %}
+    {% assign thumb_path = 'assets/gallery/2017/thumb/<name>' | replace: '<name>', file.name %}
+    {% assign thumb_url = thumb_path | relative_url %}
+
+    <a href="{{ full_url }}">
+      <img alt="TODO" src="{{ thumb_url }}">
+    </a>
+
+  {% endif %}
+{% endfor %}
 </div>
 
+<script src="{{ 'assets/lightgallery.js/dist/js/lightgallery.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/lg-thumbnail.js/dist/lg-thumbnail.min.js' | relative_url }}"></script>
+
+<script>
+(function (document) {
+    lightGallery(document.getElementById('aniimated-thumbnials'), {
+        thumbnail: true,
+        animateThumb: true,
+        showThumbByDefault: true
+    });
+})(document);
+</script>

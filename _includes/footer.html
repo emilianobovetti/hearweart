@@ -1,10 +1,12 @@
 <script>
-var navToggle = document.getElementById('nav-toggle'),
+(function (document) {
+    var navToggle = document.getElementById('nav-toggle'),
 
-    menu = document.getElementById('menu');
+        menu = document.getElementById('menu');
 
-navToggle.addEventListener('click', function (event) {
-    navToggle.classList.toggle('active');
-    menu.classList.toggle('opened');
-});
+    navToggle.addEventListener('click', function (event) {
+        navToggle.classList.toggle('active');
+        menu.classList.toggle('opened');
+    });
+})(document);
 </script>

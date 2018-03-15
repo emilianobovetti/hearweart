@@ -2,7 +2,8 @@
 .sass-cache
 .bundle
 
-assets/photoswipe
+assets/lightgallery.js
+assets/lg-thumbnail.js
 assets/purecss
 assets/rellax
 

@@ -3,7 +3,8 @@
     "surge": "^0.20.1"
   },
   "dependencies": {
-    "photoswipe": "^4.1.2",
+    "lg-thumbnail.js": "^1.0.0",
+    "lightgallery.js": "^1.0.2",
     "purecss": "^1.0.0",
     "rellax": "^1.6.0"
   }
