@@ -31,7 +31,7 @@
         handleTouchEnd = function (event) {
             var swipeLength = Math.abs(touchFrom.x - touchTo.x);
 
-            if (swipeLength > menu.clientWidth / 2) {
+            if (swipeLength > 100) {
                 closeMenu();
             }
 
@@ -41,6 +41,7 @@
         openMenu = function () {
             navToggle.classList.add('active');
             menu.classList.add('opened');
+            menu.classList.remove('closed');
             menuOpened = true;
 
             document.addEventListener('touchstart', handleTouchStart, false);
@@ -50,6 +51,7 @@
 
         closeMenu = function () {
             navToggle.classList.remove('active');
+            menu.classList.add('closed');
             menu.classList.remove('opened');
             menuOpened = false;
 

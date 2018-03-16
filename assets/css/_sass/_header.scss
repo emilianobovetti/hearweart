@@ -31,7 +31,12 @@
 
 #menu.opened {
   transform: translateX(0);
-  transition: transform 1s ease-in-out;
+  transition: transform 0.7s ease-in-out;
+}
+
+#menu.closed {
+  transform: translateX(-101%);
+  transition: transform 0.6s;
 }
 
 .pure-menu-list {
