@@ -27,11 +27,20 @@ app.handleTouchStart = function (event) {
 };
 
 app.handleTouchMove = function (event) {
+    var oldXval = app.touch.to
+        .map(function (point) {
+            return point.x;
+        })
+        .getOrElse(0);
+
     app.touch.to = maybe.just(app.touchEventToPoint(event));
 
     app.touch.from
         .filter(function () {
             return app.touch.to.nonEmpty;
+        })
+        .filter(function () {
+            return Math.abs(app.touch.to.get().x - oldXval) > 20;
         })
         .map(function () {
             return app.touch.from.get().x - app.touch.to.get().x;
@@ -42,8 +51,6 @@ app.handleTouchMove = function (event) {
 };
 
 app.handleTouchEnd = function (event) {
-    var swipeLength =
-
     app.touch.from
         .filter(function () {
             return app.touch.to.nonEmpty;
