@@ -15,6 +15,14 @@ app.touchEventToPoint = function (event) {
     return app.point(event.touches[0].clientX, event.touches[0].clientY);
 };
 
+app.viewPortHeight = function () {
+    return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+};
+
+app.viewPortWidth = function () {
+    return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+};
+
 app.touch = {};
 app.touch.from = maybe.nothing;
 app.touch.to = maybe.nothing;
@@ -40,7 +48,7 @@ app.handleTouchMove = function (event) {
             return app.touch.to.nonEmpty;
         })
         .filter(function () {
-            return Math.abs(app.touch.to.get().x - oldXval) > 20;
+            return Math.abs(app.touch.to.get().x - oldXval) > 10;
         })
         .map(function () {
             return app.touch.from.get().x - app.touch.to.get().x;
@@ -48,6 +56,8 @@ app.handleTouchMove = function (event) {
         .forEach(function (translation) {
             app.menu.style.transform = 'translateX(-' + translation + 'px)';
         });
+
+    event.preventDefault();
 };
 
 app.handleTouchEnd = function (event) {
@@ -68,6 +78,9 @@ app.handleTouchEnd = function (event) {
 };
 
 app.openMenu = function () {
+    document.documentElement.scrollTop = 0;
+
+    document.body.classList.add('scroll-lock');
     app.navToggle.classList.add('active');
     app.menu.classList.remove('closed');
     app.menu.classList.add('opened');
@@ -82,6 +95,7 @@ app.closeMenu = function () {
     app.menu.style.transition = null;
     app.menu.style.transform = null;
 
+    document.body.classList.remove('scroll-lock');
     app.navToggle.classList.remove('active');
     app.menu.classList.remove('opened');
     app.menu.classList.add('closed');
