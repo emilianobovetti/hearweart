@@ -2,7 +2,7 @@ empty :=
 comma := ,
 space := $(empty) $(empty)
 # add assets/<node-asset> to .gitignore too
-node-assets := $(addprefix assets/, purecss rellax lightgallery.js lg-thumbnail.js)
+node-assets := $(addprefix assets/, purecss rellax lightgallery.js lg-thumbnail.js stateless-maybe-js)
 surge := node node_modules/surge/lib/cli.js
 
 define addslashes

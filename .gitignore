@@ -2,6 +2,7 @@
 .sass-cache
 .bundle
 
+assets/stateless-maybe-js
 assets/lightgallery.js
 assets/lg-thumbnail.js
 assets/purecss
