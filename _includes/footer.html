@@ -2,11 +2,64 @@
 (function (document) {
     var navToggle = document.getElementById('nav-toggle'),
 
-        menu = document.getElementById('menu');
+        menu = document.getElementById('menu'),
+
+        menuOpened = false,
+
+        point = function (x, y) {
+            return { x: x, y: y };
+        },
+
+        touchEventToPoint = function (event) {
+            return point(event.touches[0].clientX, event.touches[0].clientY);
+        },
+
+        touchFrom = point(0, 0),
+
+        touchTo = point(0, 0),
+
+        handleTouchStart = function (event) {
+            touchFrom = touchEventToPoint(event);
+        },
+
+        handleTouchMove = function (event) {
+            touchTo = touchEventToPoint(event);
+
+            menu.style.transform = 'translateX(-' + (menu.clientWidth - touchTo.x) + 'px)';
+        },
+
+        handleTouchEnd = function (event) {
+            var swipeLength = Math.abs(touchFrom.x - touchTo.x);
+
+            if (swipeLength > menu.clientWidth / 2) {
+                closeMenu();
+            }
+
+            menu.style.transform = null;
+        },
+
+        openMenu = function () {
+            navToggle.classList.add('active');
+            menu.classList.add('opened');
+            menuOpened = true;
+
+            document.addEventListener('touchstart', handleTouchStart, false);
+            document.addEventListener('touchmove', handleTouchMove, false);
+            document.addEventListener('touchend', handleTouchEnd, false);
+        },
+
+        closeMenu = function () {
+            navToggle.classList.remove('active');
+            menu.classList.remove('opened');
+            menuOpened = false;
+
+            document.removeEventListener('touchstart', handleTouchStart);
+            document.removeEventListener('touchmove', handleTouchMove);
+            document.removeEventListener('touchend', handleTouchEnd);
+        };
 
     navToggle.addEventListener('click', function (event) {
-        navToggle.classList.toggle('active');
-        menu.classList.toggle('opened');
+        menuOpened ? closeMenu() : openMenu();
     });
 })(document);
 </script>
