@@ -36,7 +36,7 @@
 
 #menu.closed {
   transform: translateX(-101%);
-  transition: transform 0.6s;
+  transition: transform 0.7s ease-out;
 }
 
 .pure-menu-list {

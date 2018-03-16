@@ -20,18 +20,23 @@
 
         handleTouchStart = function (event) {
             touchFrom = touchEventToPoint(event);
+
+            menu.style.transition = 'transform 0.3s';
         },
 
         handleTouchMove = function (event) {
             touchTo = touchEventToPoint(event);
 
-            menu.style.transform = 'translateX(-' + (menu.clientWidth - touchTo.x) + 'px)';
+            var translation = touchFrom.x - touchTo.x;
+
+            menu.style.transform = 'translateX(-' + translation + 'px)';
         },
 
         handleTouchEnd = function (event) {
             var swipeLength = Math.abs(touchFrom.x - touchTo.x);
 
             if (swipeLength > 100) {
+                menu.style.transition = null;
                 closeMenu();
             }
 
