@@ -48,7 +48,7 @@ app.handleTouchEnd = function (event) {
             return app.touch.to.nonEmpty;
         })
         .map(function (from) {
-            return Math.abs(from.x - app.touch.to.get().x);
+            return from.x - app.touch.to.get().x;
         })
         .forEach(function (swipeLength) {
             if (swipeLength > 100) {
