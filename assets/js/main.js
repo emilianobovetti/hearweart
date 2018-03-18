@@ -35,29 +35,21 @@ app.handleTouchStart = function (event) {
 };
 
 app.handleTouchMove = function (event) {
-    var oldXval = app.touch.to
-        .map(function (point) {
-            return point.x;
-        })
-        .getOrElse(0);
+    var currentPoint = app.touchEventToPoint(event);
 
-    app.touch.to = maybe.just(app.touchEventToPoint(event));
+    event.preventDefault();
 
     app.touch.from
         .filter(function () {
-            return app.touch.to.nonEmpty;
-        })
-        .filter(function () {
-            return Math.abs(app.touch.to.get().x - oldXval) > 10;
+            return Math.abs(currentPoint.x - app.touch.to.getOrElse({x: 0}).x) > 10;
         })
         .map(function () {
-            return app.touch.from.get().x - app.touch.to.get().x;
+            return app.touch.from.get().x - currentPoint.x;
         })
         .forEach(function (translation) {
             app.menu.style.transform = 'translateX(-' + translation + 'px)';
+            app.touch.to = maybe.just(currentPoint);
         });
-
-    event.preventDefault();
 };
 
 app.handleTouchEnd = function (event) {
