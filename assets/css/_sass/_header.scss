@@ -27,6 +27,7 @@
   background: #eee;
   z-index: 10;
   text-align: center;
+  overflow: scroll;
 }
 
 #menu.opened {
@@ -147,6 +148,7 @@
 
   #menu {
     transform: translateX(0);
+    overflow: visible;
     height: 0;
   }
 
