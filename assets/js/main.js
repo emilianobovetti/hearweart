@@ -15,14 +15,6 @@ app.touchEventToPoint = function (event) {
     return app.point(event.touches[0].clientX, event.touches[0].clientY);
 };
 
-app.viewPortHeight = function () {
-    return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-};
-
-app.viewPortWidth = function () {
-    return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-};
-
 app.touch = {};
 app.touch.from = maybe.nothing;
 app.touch.to = maybe.nothing;
@@ -43,11 +35,11 @@ app.handleTouchMove = function (event) {
         .filter(function () {
             return Math.abs(currentPoint.x - app.touch.to.getOrElse({x: 0}).x) > 10;
         })
-        .map(function () {
-            return app.touch.from.get().x - currentPoint.x;
+        .map(function (from) {
+            return from.x - currentPoint.x;
         })
-        .forEach(function (translation) {
-            app.menu.style.transform = 'translateX(-' + translation + 'px)';
+        .forEach(function (swipeLength) {
+            app.menu.style.transform = 'translateX(-' + swipeLength + 'px)';
             app.touch.to = maybe.just(currentPoint);
         });
 };
@@ -57,8 +49,8 @@ app.handleTouchEnd = function (event) {
         .filter(function () {
             return app.touch.to.nonEmpty;
         })
-        .map(function () {
-            return Math.abs(app.touch.from.get().x - app.touch.to.get().x);
+        .map(function (from) {
+            return Math.abs(from.x - app.touch.to.get().x);
         })
         .forEach(function (swipeLength) {
             if (swipeLength > 100) {
