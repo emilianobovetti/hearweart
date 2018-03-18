@@ -29,8 +29,6 @@ app.handleTouchStart = function (event) {
 app.handleTouchMove = function (event) {
     var currentPoint = app.touchEventToPoint(event);
 
-    event.preventDefault();
-
     app.touch.from
         .filter(function () {
             return Math.abs(currentPoint.x - app.touch.to.getOrElse({x: 0}).x) > 10;
