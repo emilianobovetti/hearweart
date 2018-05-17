@@ -15,3 +15,7 @@ deploy:
   provider: surge
   project: _site
   on: master
+
+addons:
+  apt:
+    update: true
