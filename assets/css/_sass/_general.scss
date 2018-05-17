@@ -1,20 +1,80 @@
-$light-margin: 10px;
-$medium-margin: 25px;
-$heavy-margin: 50px;
+@font-face {
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-Light.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-Light.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-Light.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
 
 @font-face {
-  font-family: "Proxima-N-W01-Reg";
-  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix");
-  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/64017d81-9430-4cba-8219-8f5cc28b923e.woff2") format("woff2"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/e56ecb6d-da41-4bd9-982d-2d295bec9ab0.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/2aff4f81-3e97-4a83-9e6c-45e33c024796.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/ab9cd062-380f-4b53-b1a7-c0bec7402235.svg#ab9cd062-380f-4b53-b1a7-c0bec7402235") format("svg");
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-LightItalic.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-LightItalic.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-LightItalic.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-Regular.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-Regular.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-Regular.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-LightItalic.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-LightItalic.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-LightItalic.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-LightItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-SemiBold.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-SemiBold.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-SemiBold.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: asset-url("font/Metropolis/Webfonts/EOT/Metropolis-SemiBoldItalic.eot") format("eot")
+     , asset-url("font/Metropolis/Webfonts/WOFF2/Metropolis-SemiBoldItalic.woff2") format("woff2")
+     , asset-url("font/Metropolis/Webfonts/WOFF/Metropolis-SemiBoldItalic.woff") format("woff")
+     , asset-url("font/Metropolis/TrueType/Metropolis-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
 }
 
 html {
-  font-family: "Proxima-N-W01-Reg";
-  font-size: 17px;
+  font-family: 'Metropolis', sans-serif;
+  font-size: 24px;
+  color: $dark-gray;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $medium-orange
+ul {
+  list-style-type: none;
+
+  li:before {
+    content: "•";
+    margin-right: 7px;
+  }
+}
+
+p {
+  line-height: 1.2em;
 }
 
 .scroll-lock {
@@ -31,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 .youtube {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
-  // padding-top: 25px; /* black lines */
+  //padding-top: 25px; /* black lines */
   height: 0;
 }
 
@@ -47,6 +107,44 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+
+// Font size classes
+
+.font-size-small {
+  font-size: 0.8em;
+}
+
+.font-size-normal {
+  font-size: 1em;
+}
+
+.font-size-big {
+  font-size: 1.2em;
+}
+
+// Font weight classes
+.font-weight-light {
+  font-weight: 300;
+}
+
+.font-weight-normal {
+  font-weight: 400;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+// Text color classes
+
+.dark-gray {
+  color: $dark-gray;
+}
+
+.light-gray {
+  color: $light-gray;
+}
+
 .dark-orange {
   color: $dark-orange;
 }
@@ -59,6 +157,15 @@ h1, h2, h3, h4, h5, h6 {
   color: $dark-blue;
 }
 
+
+// Background color classes
+
+.bg-light-gray {
+  background-color: $bg-light-gray;
+}
+
+// Text align classes
+
 .text-left {
   text-align: left;
 }
@@ -70,6 +177,8 @@ h1, h2, h3, h4, h5, h6 {
 .text-center {
   text-align: center;
 }
+
+// Margin classes
 
 .no-margin {
   margin: 0;
@@ -131,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (min-width: $sm-width) {
   .content-container {
-    padding: 10px 20px;
+    padding: 1em 3em;
   }
 
   .float-left-sm {
@@ -145,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (min-width: $md-width) {
   .content-container {
-    padding: 10px 30px;
+    padding: 1em 5em;
   }
 
   .float-left-md {

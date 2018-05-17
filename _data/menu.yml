@@ -1,13 +1,12 @@
 -
-  name: What is Hearweart
-  route: what-is-hearweart
--
-  name: 2017 pilot project
-  route: the-program
+  name: projects
   childs:
     -
+      name: 2017 pilot project
+      route: 2017-pilot-project
+    -
       name: 2017 gallery
-      route: hearweart-in-action
+      route: 2017-gallery
 -
   name: Who we are
   route: who-we-are
@@ -15,5 +14,5 @@
   name: Contact us
   route: contact-us
 -
-  name: Please donate
-  route: please-donate
+  name: Donate
+  route: donate

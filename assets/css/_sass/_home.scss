@@ -5,21 +5,20 @@
   position: relative;
   z-index: 2;
 
-  em {
-    font-size: 30px;
-    font-style: normal;
+  blockquote {
+    font-style: italic;
   }
 
   blockquote:before {
-    content: "\"";
+    content: "“";
   }
 
   blockquote:after {
-    content: "\"";
+    content: "”";
   }
 }
 
-.home-section-1 {
+.home-section-main {
   background-image: asset-url("img/home-0.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,16 +43,16 @@
   }
 }
 
-.home-section-3 {
+.home-section-parallax-bg {
   background-image: asset-url("img/home-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
 }
 
-.home-section-4 {
+.home-section-quote {
   border-top: 10px solid white;
-  border-bottom: 200px solid white;
+  border-bottom: 100px solid white;
   background: $medium-orange;
   color: white;
   min-height: 0;

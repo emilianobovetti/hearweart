@@ -1,17 +1,6 @@
 .gallery {
-  columns: 145px;
-}
-
-.gallery a {
-  margin: 1px;
-}
-
-@media screen and (min-width: $sm-width) {
-  .gallery {
-    columns: 155px;
-  }
-
-  .gallery a {
-    margin: 3px;
-  }
+  columns: 217px;
+  text-align: center;
+  max-width: 1030px;
+  margin: 20px auto;
 }
