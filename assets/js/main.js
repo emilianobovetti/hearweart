@@ -1,93 +1,103 @@
+(function (document, window) {
 
-var app = {};
+    var navToggle = document.getElementById('nav-toggle');
 
-app.navToggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('menu');
 
-app.menu = document.getElementById('menu');
+    var menuOpened = false;
 
-app.menuOpened = false;
+    var point = function (x, y) {
+        return { x: x, y: y };
+    };
 
-app.point = function (x, y) {
-    return { x: x, y: y };
-};
+    var touchEventToPoint = function (event) {
+        return point(event.touches[0].clientX, event.touches[0].clientY);
+    };
 
-app.touchEventToPoint = function (event) {
-    return app.point(event.touches[0].clientX, event.touches[0].clientY);
-};
+    var touch = {};
+    touch.from = maybe.nothing;
+    touch.to = maybe.nothing;
 
-app.touch = {};
-app.touch.from = maybe.nothing;
-app.touch.to = maybe.nothing;
+    var handleTouchStart = function (event) {
+        touch.from = maybe.just(touchEventToPoint(event));
+        touch.to = maybe.nothing;
 
-app.handleTouchStart = function (event) {
-    app.touch.from = maybe.just(app.touchEventToPoint(event));
-    app.touch.to = maybe.nothing;
+        menu.style.transition = 'transform 0.3s';
+    };
 
-    app.menu.style.transition = 'transform 0.3s';
-};
+    var minSwipeOffset = 10;
 
-app.handleTouchMove = function (event) {
-    var currentPoint = app.touchEventToPoint(event);
+    var handleTouchMove = function (event) {
+        var currentPoint = touchEventToPoint(event);
 
-    app.touch.from
-        .filter(function () {
-            return Math.abs(currentPoint.x - app.touch.to.getOrElse({x: 0}).x) > 10;
-        })
-        .map(function (from) {
-            return from.x - currentPoint.x;
-        })
-        .forEach(function (swipeLength) {
-            app.menu.style.transform = 'translateX(-' + swipeLength + 'px)';
-            app.touch.to = maybe.just(currentPoint);
-        });
-};
+        touch.to
+            .map(function (to) {
+                return Math.abs(to.x - currentPoint.x);
+            })
+            .orElse(minSwipeOffset + 1)
+            .filter(function (swipeOffset) {
+                return swipeOffset > minSwipeOffset && touch.from.nonEmpty;
+            })
+            .forEach(function () {
+                var swipeLength = touch.from.get().x - currentPoint.x;
 
-app.handleTouchEnd = function (event) {
-    app.touch.from
-        .filter(function () {
-            return app.touch.to.nonEmpty;
-        })
-        .map(function (from) {
-            return from.x - app.touch.to.get().x;
-        })
-        .forEach(function (swipeLength) {
-            if (swipeLength > 100) {
-                app.closeMenu();
-            } else {
-                app.menu.style.transform = null;
-            }
-        });
-};
+                if (swipeLength < 0) {
+                    swipeLength = 0;
+                }
 
-app.openMenu = function () {
-    document.documentElement.scrollTop = 0;
+                menu.style.transform = 'translateX(-' + swipeLength + 'px)';
+                touch.to = maybe.just(currentPoint);
+            });
+    };
 
-    document.body.classList.add('scroll-lock');
-    app.navToggle.classList.add('active');
-    app.menu.classList.remove('closed');
-    app.menu.classList.add('opened');
-    app.menuOpened = true;
+    var handleTouchEnd = function (event) {
+        touch.from
+            .filter(function () {
+                return touch.to.nonEmpty;
+            })
+            .map(function (from) {
+                return from.x - touch.to.get().x;
+            })
+            .forEach(function (swipeLength) {
+                if (swipeLength > 100) {
+                    closeMenu();
+                } else {
+                    menu.style.transform = null;
+                }
+            });
+    };
 
-    document.addEventListener('touchstart', app.handleTouchStart, false);
-    document.addEventListener('touchmove', app.handleTouchMove, false);
-    document.addEventListener('touchend', app.handleTouchEnd, false);
-};
+    var openMenu = function () {
+        document.documentElement.scrollTop = 0;
 
-app.closeMenu = function () {
-    app.menu.style.transition = null;
-    app.menu.style.transform = null;
+        document.body.classList.add('scroll-lock');
+        navToggle.classList.add('active');
+        menu.classList.remove('closed');
+        menu.classList.add('opened');
+        menuOpened = true;
 
-    document.body.classList.remove('scroll-lock');
-    app.navToggle.classList.remove('active');
-    app.menu.classList.remove('opened');
-    app.menu.classList.add('closed');
-    app.menuOpened = false;
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
+        document.addEventListener('touchend', handleTouchEnd, false);
+    };
 
-    document.removeEventListener('touchstart', app.handleTouchStart);
-    document.removeEventListener('touchmove', app.handleTouchMove);
-    document.removeEventListener('touchend', app.handleTouchEnd);
-};
+    var closeMenu = function () {
+        menu.style.transition = null;
+        menu.style.transform = null;
 
-app.navToggle.addEventListener('click', function (event) {
-    app.menuOpened ? app.closeMenu() : app.openMenu();
-});
+        document.body.classList.remove('scroll-lock');
+        navToggle.classList.remove('active');
+        menu.classList.remove('opened');
+        menu.classList.add('closed');
+        menuOpened = false;
+
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+    };
+
+    navToggle.addEventListener('click', function (event) {
+        menuOpened ? closeMenu() : openMenu();
+    });
+
+})(document, window);
