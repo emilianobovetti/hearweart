@@ -17,7 +17,7 @@
       {% assign item_selected = "pure-menu-selected" %}
     {% endif %}
 
-    <li class="pure-menu-item {{ items_has_child }} {{ item_selected }}">
+    <li class="pure-menu-item {{ items_has_child }} {{ item_selected }}" tabindex="0">
 
       {% if item.route %}
         <a href="{{ item.route | relative_url }}" class="pure-menu-link uppercase">
