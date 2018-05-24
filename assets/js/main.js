@@ -5,33 +5,108 @@
     var menuElement = document.getElementById('menu');
 
     var stateHandler = function (openFn, closeFn) {
+        var lastStateChange = 0;
         var opened = false;
 
         var handler = {};
 
-        handler.open = function () {
-            openFn();
-            opened = true;
+        /*
+         * `click` and `mouseenter` events could be fired together
+         * in that case we have to ensure at least 100 ms are passed
+         * before to update the state again.
+         */
+        var updateState = function (newState) {
+            var now = Date.now();
+
+            if (now - lastStateChange > 100) {
+                newState ? openFn() : closeFn();
+                opened = newState;
+                lastStateChange = now;
+            }
 
             return handler;
+        }
+
+        handler.open = function () {
+            return updateState(true);
         };
 
         handler.close = function () {
-            closeFn();
-            opened = false;
-
-            return handler;
+            return updateState(false);
         };
 
         handler.toggle = function () {
-            opened ? closeFn() : openFn();
-            opened = ! opened;
-
-            return handler;
+            return opened ? handler.close() : handler.open();
         };
 
         return handler;
     };
+
+    var filterChildNodes = function (element, filterFn) {
+        return maybe.object(element.childNodes)
+            .map(function (childNodes) {
+                return [].filter.call(childNodes, filterFn);
+            });
+    };
+
+    var filterChildNodesByClass = function (element, classFilter) {
+        return filterChildNodes(element, function (child) {
+            var className = maybe.string(child.className).toString();
+
+            return className.indexOf(classFilter) >= 0;
+        });
+    };
+
+    var getFirst = function (array) {
+        return array[0];
+    };
+
+    document.querySelectorAll('#menu .pure-menu-has-children')
+        .forEach(function (subMenuElement) {
+            var menuChildren = filterChildNodesByClass(subMenuElement, 'pure-menu-children')
+                    .map(getFirst);
+
+            var menuLink = filterChildNodesByClass(subMenuElement, 'pure-menu-link')
+                    .map(getFirst);
+
+            var openSubMenu = function () {
+                menuChildren.forEach(function (node) {
+                    node.classList.remove('hidden');
+                });
+
+                menuLink.forEach(function (node) {
+                    node.classList.remove('collapsed-menu-container');
+                    node.classList.add('expanded-menu-container');
+                });
+            };
+
+            var closeSubMenu = function () {
+                menuChildren.forEach(function (node) {
+                    node.classList.add('hidden');
+                });
+
+                menuLink.forEach(function (node) {
+                    node.classList.remove('expanded-menu-container');
+                    node.classList.add('collapsed-menu-container');
+                });
+            };
+
+            var subMenu = stateHandler(openSubMenu, closeSubMenu).close();
+
+            subMenuElement.addEventListener('click', function (event) {
+                subMenu.toggle();
+            });
+
+            subMenuElement.addEventListener('mouseenter', function (event) {
+                subMenu.open();
+            });
+
+            subMenuElement.addEventListener('mouseleave', function (event) {
+                subMenu.close();
+            });
+
+            return subMenu;
+        });
 
     var openMenu = function () {
         document.documentElement.scrollTop = 0;
@@ -127,71 +202,4 @@
                 }
             });
     };
-
-    var filterChildNodes = function (element, filterFn) {
-        return maybe.object(element.childNodes)
-            .map(function (childNodes) {
-                return [].filter.call(childNodes, filterFn);
-            });
-    };
-
-    var filterChildNodesByClass = function (element, classFilter) {
-        return filterChildNodes(element, function (child) {
-            var className = maybe.string(child.className).toString();
-
-            return className.indexOf(classFilter) >= 0;
-        });
-    };
-
-    var getFirst = function (array) {
-        return array[0];
-    };
-
-    document
-        .querySelectorAll('#menu .pure-menu-has-children')
-        .forEach(function (subMenuElement) {
-            var menuChildren = filterChildNodesByClass(subMenuElement, 'pure-menu-children')
-                    .map(getFirst);
-
-            var menuLink = filterChildNodesByClass(subMenuElement, 'pure-menu-link')
-                    .map(getFirst);
-
-            var openSubMenu = function () {
-                menuChildren.forEach(function (node) {
-                    node.classList.remove('hidden');
-                });
-
-                menuLink.forEach(function (node) {
-                    node.classList.remove('collapsed-menu-container');
-                    node.classList.add('expanded-menu-container');
-                });
-            };
-
-            var closeSubMenu = function () {
-                menuChildren.forEach(function (node) {
-                    node.classList.add('hidden');
-                });
-
-                menuLink.forEach(function (node) {
-                    node.classList.remove('expanded-menu-container');
-                    node.classList.add('collapsed-menu-container');
-                });
-            };
-
-            var subMenu = stateHandler(openSubMenu, closeSubMenu).close();
-
-            subMenuElement.addEventListener('click', function (event) {
-                subMenu.toggle();
-            });
-
-            subMenuElement.addEventListener('mouseenter', function (event) {
-                subMenu.open();
-            });
-
-            subMenuElement.addEventListener('mouseleave', function (event) {
-                subMenu.close();
-            });
-
-        });
-
 })(document, window);
