@@ -2,9 +2,69 @@
 
     var navToggle = document.getElementById('nav-toggle');
 
-    var menu = document.getElementById('menu');
+    var menuElement = document.getElementById('menu');
 
-    var menuOpened = false;
+    var stateHandler = function (openFn, closeFn) {
+        var opened = false;
+
+        var handler = {};
+
+        handler.open = function () {
+            openFn();
+            opened = true;
+
+            return handler;
+        };
+
+        handler.close = function () {
+            closeFn();
+            opened = false;
+
+            return handler;
+        };
+
+        handler.toggle = function () {
+            opened ? closeFn() : openFn();
+            opened = ! opened;
+
+            return handler;
+        };
+
+        return handler;
+    };
+
+    var openMenu = function () {
+        document.documentElement.scrollTop = 0;
+
+        document.body.classList.add('scroll-lock');
+        navToggle.classList.add('active');
+        menuElement.classList.remove('closed');
+        menuElement.classList.add('opened');
+
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
+        document.addEventListener('touchend', handleTouchEnd, false);
+    };
+
+    var closeMenu = function () {
+        menuElement.style.transition = null;
+        menuElement.style.transform = null;
+
+        document.body.classList.remove('scroll-lock');
+        navToggle.classList.remove('active');
+        menuElement.classList.remove('opened');
+        menuElement.classList.add('closed');
+
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+    };
+
+    var menu = stateHandler(openMenu, closeMenu);
+
+    navToggle.addEventListener('click', function (event) {
+        menu.toggle();
+    });
 
     var point = function (x, y) {
         return { x: x, y: y };
@@ -15,6 +75,7 @@
     };
 
     var touch = {};
+
     touch.from = maybe.nothing;
     touch.to = maybe.nothing;
 
@@ -22,7 +83,7 @@
         touch.from = maybe.just(touchEventToPoint(event));
         touch.to = maybe.nothing;
 
-        menu.style.transition = 'transform 0.3s';
+        menuElement.style.transition = 'transform 0.3s';
     };
 
     var minSwipeOffset = 10;
@@ -45,7 +106,7 @@
                     swipeLength = 0;
                 }
 
-                menu.style.transform = 'translateX(-' + swipeLength + 'px)';
+                menuElement.style.transform = 'translateX(-' + swipeLength + 'px)';
                 touch.to = maybe.just(currentPoint);
             });
     };
@@ -60,44 +121,68 @@
             })
             .forEach(function (swipeLength) {
                 if (swipeLength > 100) {
-                    closeMenu();
+                    menu.close();
                 } else {
-                    menu.style.transform = null;
+                    menuElement.style.transform = null;
                 }
             });
     };
 
-    var openMenu = function () {
-        document.documentElement.scrollTop = 0;
-
-        document.body.classList.add('scroll-lock');
-        navToggle.classList.add('active');
-        menu.classList.remove('closed');
-        menu.classList.add('opened');
-        menuOpened = true;
-
-        document.addEventListener('touchstart', handleTouchStart, false);
-        document.addEventListener('touchmove', handleTouchMove, false);
-        document.addEventListener('touchend', handleTouchEnd, false);
+    var filterChildNodes = function (element, filterFn) {
+        return maybe.object(element.childNodes)
+            .map(function (childNodes) {
+                return [].filter.call(childNodes, filterFn);
+            });
     };
 
-    var closeMenu = function () {
-        menu.style.transition = null;
-        menu.style.transform = null;
+    var filterChildNodesByClass = function (element, classFilter) {
+        return filterChildNodes(element, function (child) {
+            var className = maybe.string(child.className).toString();
 
-        document.body.classList.remove('scroll-lock');
-        navToggle.classList.remove('active');
-        menu.classList.remove('opened');
-        menu.classList.add('closed');
-        menuOpened = false;
-
-        document.removeEventListener('touchstart', handleTouchStart);
-        document.removeEventListener('touchmove', handleTouchMove);
-        document.removeEventListener('touchend', handleTouchEnd);
+            return className.indexOf(classFilter) >= 0;
+        });
     };
 
-    navToggle.addEventListener('click', function (event) {
-        menuOpened ? closeMenu() : openMenu();
-    });
+    document
+        .querySelectorAll('#menu .pure-menu-has-children')
+        .forEach(function (subMenuElement) {
+            var menuChildren = filterChildNodesByClass(subMenuElement, 'pure-menu-children')
+                    .map(function (child) {
+                        return child[0]
+                    });
+
+            var menuLink = filterChildNodesByClass(subMenuElement, 'pure-menu-link')
+                    .map(function (child) {
+                        return child[0]
+                    });
+
+            var openSubMenu = function () {
+                menuChildren.forEach(function (node) {
+                    node.classList.remove('hidden');
+                });
+
+                menuLink.forEach(function (node) {
+                    node.classList.remove('collapsed-menu-container');
+                    node.classList.add('expanded-menu-container');
+                });
+            };
+
+            var closeSubMenu = function () {
+                menuChildren.forEach(function (node) {
+                    node.classList.add('hidden');
+                });
+
+                menuLink.forEach(function (node) {
+                    node.classList.remove('expanded-menu-container');
+                    node.classList.add('collapsed-menu-container');
+                });
+            };
+
+            var subMenu = stateHandler(openSubMenu, closeSubMenu).close();
+
+            subMenuElement.addEventListener('click', function (event) {
+                subMenu.toggle();
+            });
+        });
 
 })(document, window);

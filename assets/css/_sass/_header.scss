@@ -68,7 +68,6 @@ $header-border: 2px;
   background: none;
 }
 
-
 @mixin menu-item-line($width) {
   position: absolute;
   display: block;
@@ -111,6 +110,14 @@ $header-border: 2px;
   padding: 20px 0;
 }
 
+#menu .expanded-menu-container:after {
+  content: "\25BE";
+}
+
+#menu .collapsed-menu-container:after {
+  content: "\25B8";
+}
+
 .pure-menu-children {
   display: block;
   position: static;
@@ -120,6 +127,9 @@ $header-border: 2px;
 .pure-menu-allow-hover:hover,
 .pure-menu-allow-hover:focus,
 .pure-menu-allow-hover:active {
+  cursor: pointer;
+  outline: none;
+
   .pure-menu-children {
     position: static;
   }
@@ -229,8 +239,6 @@ $header-border: 2px;
   .pure-menu-allow-hover:hover,
   .pure-menu-allow-hover:focus,
   .pure-menu-allow-hover:active {
-    cursor: pointer;
-
     .pure-menu-children {
       position: absolute;
       display: block;

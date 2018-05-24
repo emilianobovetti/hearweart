@@ -4,7 +4,7 @@ title: 2017 Gallery
 css: ['node-assets/lightgallery.js/dist/css/lightgallery.min.css']
 ---
 
-<div class="gallery" id="aniimated-thumbnials">
+<div class="gallery" id="lightgallery">
 {% for file in site.static_files %}
   {% if file.path contains 'assets/gallery/2017/full' %}
 
@@ -21,14 +21,9 @@ css: ['node-assets/lightgallery.js/dist/css/lightgallery.min.css']
 </div>
 
 <script src="{{ 'node-assets/lightgallery.js/dist/js/lightgallery.min.js' | relative_url }}"></script>
-<script src="{{ 'node-assets/lg-thumbnail.js/dist/lg-thumbnail.min.js' | relative_url }}"></script>
 
 <script>
 (function (document) {
-    lightGallery(document.getElementById('aniimated-thumbnials'), {
-        thumbnail: true,
-        animateThumb: true,
-        showThumbByDefault: true
-    });
+    lightGallery(document.getElementById('lightgallery'));
 })(document);
 </script>
