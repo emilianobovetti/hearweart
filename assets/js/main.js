@@ -183,6 +183,15 @@
             subMenuElement.addEventListener('click', function (event) {
                 subMenu.toggle();
             });
+
+            subMenuElement.addEventListener('mouseenter', function (event) {
+                subMenu.open();
+            });
+
+            subMenuElement.addEventListener('mouseleave', function (event) {
+                subMenu.close();
+            });
+
         });
 
 })(document, window);

@@ -19,11 +19,7 @@
       {% assign item_selected = 'pure-menu-selected' %}
     {% endif %}
 
-    <li
-      class="pure-menu-item {{ item_has_child }} {{ item_selected }}"
-      {% if item.childs  %}
-        tabindex="{% increment tab_index %}"
-      {% endif %}>
+    <li class="pure-menu-item {{ item_has_child }} {{ item_selected }}">
 
       {% if item.route %}
         <a
