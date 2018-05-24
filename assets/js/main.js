@@ -143,18 +143,18 @@
         });
     };
 
+    var getFirst = function (array) {
+        return array[0];
+    };
+
     document
         .querySelectorAll('#menu .pure-menu-has-children')
         .forEach(function (subMenuElement) {
             var menuChildren = filterChildNodesByClass(subMenuElement, 'pure-menu-children')
-                    .map(function (child) {
-                        return child[0]
-                    });
+                    .map(getFirst);
 
             var menuLink = filterChildNodesByClass(subMenuElement, 'pure-menu-link')
-                    .map(function (child) {
-                        return child[0]
-                    });
+                    .map(getFirst);
 
             var openSubMenu = function () {
                 menuChildren.forEach(function (node) {

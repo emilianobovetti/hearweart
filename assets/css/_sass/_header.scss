@@ -45,6 +45,14 @@ $header-border: 2px;
   transition: transform 0.7s ease-out;
 }
 
+#menu .expanded-menu-container:after {
+  content: "\25BE";
+}
+
+#menu .collapsed-menu-container:after {
+  content: "\25B8";
+}
+
 .pure-menu-list {
   margin: 40px auto;
   width: 100%;
@@ -108,14 +116,6 @@ $header-border: 2px;
 
 .pure-menu-link {
   padding: 20px 0;
-}
-
-#menu .expanded-menu-container:after {
-  content: "\25BE";
-}
-
-#menu .collapsed-menu-container:after {
-  content: "\25B8";
 }
 
 .pure-menu-children {
