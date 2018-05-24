@@ -26,10 +26,18 @@
 # Margins
 -
   name: light-margin
-  value: 20px
+  value: 10px
 -
   name: medium-margin
-  value: 40px
+  value: 20px
 -
   name: heavy-margin
-  value: 80px
+  value: 40px
+
+# Header
+-
+  name: header-height
+  value: 85px
+-
+  name: lg-header-height
+  value: 65px

@@ -7,25 +7,34 @@
 
   {% for item in menu_items %}
 
-    {% assign items_has_child = "" %}
+    {% assign item_has_child = '' %}
+
     {% if item.childs  %}
-      {% assign items_has_child = "pure-menu-allow-hover pure-menu-has-children" %}
+      {% assign item_has_child = 'pure-menu-allow-hover pure-menu-has-children' %}
     {% endif %}
 
-    {% assign item_selected = "" %}
+    {% assign item_selected = '' %}
+
     {% if page.name contains item.route %}
-      {% assign item_selected = "pure-menu-selected" %}
+      {% assign item_selected = 'pure-menu-selected' %}
     {% endif %}
 
-    <li class="pure-menu-item {{ items_has_child }} {{ item_selected }}" tabindex="0">
+    <li
+      class="pure-menu-item {{ item_has_child }} {{ item_selected }}"
+      {% if item.childs  %}
+        tabindex="{% increment tab_index %}"
+      {% endif %}>
 
       {% if item.route %}
-        <a href="{{ item.route | relative_url }}" class="pure-menu-link uppercase">
-          {{ item.name }}
+        <a
+          href="{{ item.route | relative_url }}"
+          class="pure-menu-link uppercase">
+            {{ item.name }}
         </a>
       {% else %}
-        <span class="pure-menu-link uppercase">
-          {{ item.name }}
+        <span
+          class="pure-menu-link uppercase">
+            {{ item.name }}
         </span>
       {% endif %}
 

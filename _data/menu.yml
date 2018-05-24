@@ -1,4 +1,7 @@
 -
+  name: <i class="fas fa-home hide-on-lg"></i>
+  route: /
+-
   name: projects
   childs:
     -

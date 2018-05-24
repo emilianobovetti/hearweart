@@ -60,12 +60,26 @@
 
 html {
   font-family: 'Metropolis', sans-serif;
-  font-size: 24px;
   color: $dark-gray;
+  font-size: 11px;
+
+  @media screen and (min-width: $sm-width) {
+    font-size: 15px;
+  }
+
+  @media screen and (min-width: $lg-width) {
+    font-size: 17px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend .heavy-vertical-margin;
+  font-size: 2em;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
 
   li:before {
     content: "•";
@@ -73,8 +87,24 @@ ul {
   }
 }
 
+p, li {
+  @extend .medium-vertical-margin;
+}
+
 p {
-  line-height: 1.2em;
+  line-height: 1.5em;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+blockquote:before {
+  content: "“";
+}
+
+blockquote:after {
+  content: "”";
 }
 
 .scroll-lock {
@@ -85,7 +115,8 @@ p {
 .content-container {
   margin: 0 auto;
   max-width: 850px;
-  padding: 10px 5px;
+  padding: 0 5px;
+  overflow: auto;
 }
 
 .youtube {
@@ -105,21 +136,6 @@ p {
 
 .uppercase {
   text-transform: uppercase;
-}
-
-
-// Font size classes
-
-.font-size-small {
-  font-size: 0.8em;
-}
-
-.font-size-normal {
-  font-size: 1em;
-}
-
-.font-size-big {
-  font-size: 1.2em;
 }
 
 // Font weight classes
@@ -157,7 +173,6 @@ p {
   color: $dark-blue;
 }
 
-
 // Background color classes
 
 .bg-light-gray {
@@ -178,57 +193,83 @@ p {
   text-align: center;
 }
 
-// Margin classes
+// Zero margin
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.no-vertical-margin {
+  @extend .no-margin-top;
+  @extend .no-margin-bottom;
+}
 
 .no-margin {
   margin: 0;
+}
+
+// Light margin
+
+.light-margin-top {
+  margin-top: $light-margin;
+}
+
+.light-margin-bottom {
+  margin-bottom: $light-margin;
+}
+
+.light-vertical-margin {
+  @extend .light-margin-top;
+  @extend .light-margin-bottom;
 }
 
 .light-margin {
   margin: $light-margin;
 }
 
-.light-vertical-margin {
-  margin-top: $light-margin;
-  margin-bottom: $light-margin;
+// Medium margin
+
+.medium-margin-top {
+  margin-top: $medium-margin;
 }
 
-.light-horizontal-margin {
-  margin-left: $light-margin;
-  margin-right: $light-margin;
+.medium-margin-bottom {
+  margin-bottom: $medium-margin;
+}
+
+.medium-vertical-margin {
+  @extend .medium-margin-top;
+  @extend .medium-margin-bottom;
 }
 
 .medium-margin {
   margin: $medium-margin;
 }
 
-.medium-vertical-margin {
-  margin-top: $medium-margin;
-  margin-bottom: $medium-margin;
+// Heavy margin
+
+.heavy-margin-top {
+  margin-top: $heavy-margin;
 }
 
-.medium-horizontal-margin {
-  margin-left: $medium-margin;
-  margin-right: $medium-margin;
+.heavy-margin-bottom {
+  margin-bottom: $heavy-margin;
+}
+
+.heavy-vertical-margin {
+  @extend .heavy-margin-top;
+  @extend .heavy-margin-bottom;
 }
 
 .heavy-margin {
   margin: $heavy-margin;
 }
 
-.heavy-vertical-margin {
-  margin-top: $heavy-margin;
-  margin-bottom: $heavy-margin;
-}
-
-.heavy-horizontal-margin {
-  margin-left: $heavy-margin;
-  margin-right: $heavy-margin;
-}
-
-.clear-both {
-  clear: both;
-}
+// Float classes
 
 .float-left {
   float: left;
@@ -238,23 +279,21 @@ p {
   float: right;
 }
 
+// Responsive show
+
+.show-on-lg {
+  visibility: hidden;
+}
+
 @media screen and (min-width: $sm-width) {
   .content-container {
-    padding: 1em 3em;
-  }
-
-  .float-left-sm {
-    float: left;
-  }
-
-  .float-right-sm {
-    float: right;
+    padding: 0 3em;
   }
 }
 
 @media screen and (min-width: $md-width) {
   .content-container {
-    padding: 1em 5em;
+    padding: 0 5em;
   }
 
   .float-left-md {
@@ -267,21 +306,11 @@ p {
 }
 
 @media screen and (min-width: $lg-width) {
-  .float-left-lg {
-    float: left;
+  .show-on-lg {
+    visibility: visible;
   }
 
-  .float-right-lg {
-    float: right;
-  }
-}
-
-@media screen and (min-width: $xl-width) {
-  .float-left-xl {
-    float: left;
-  }
-
-  .float-right-xl {
-    float: right;
+  .hide-on-lg {
+    visibility: hidden;
   }
 }

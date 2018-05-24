@@ -1,13 +1,39 @@
 .contact-us {
   background: $medium-orange;
-  min-height: 100%;
-}
-
-.contact-mail {
-  font-size: 20px;
+  position: absolute;
+  top: $header-height;
+  bottom: 0;
+  padding: 0 5px;
 }
 
 .contact-us p {
-  font-size: 50px;
+  font-size: 20px;
   color: white;
+}
+
+@media screen and (min-width: $sm-width) {
+  .contact-us {
+    padding: 20px 50px;
+  }
+
+  .contact-us p {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: $md-width) {
+  .contact-us {
+    padding: 30px 150px;
+  }
+}
+
+@media screen and (min-width: $lg-width) {
+  .contact-us {
+    top: $lg-header-height;
+    padding: 50px 200px;
+  }
+
+  .contact-us p {
+    font-size: 30px;
+  }
 }
