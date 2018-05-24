@@ -35,7 +35,7 @@ serve : jekyll
 thumbs :
 	@mkdir -p assets/gallery/2017/thumb
 	@cd assets/gallery/2017 && \
-		mogrify -path thumb -thumbnail 30% full/*
+		mogrify -path thumb -thumbnail 30% -quality 90 full/*
 
 .PHONY: clean
 clean :
