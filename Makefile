@@ -10,8 +10,13 @@ all : jekyll htmlproofer
 deploy : all
 	@$(surge) _site
 
-node-assets :
+.PHONY: yarn-check
+yarn-check :
+ifeq ("$(wildcard node_modules)", "")
 	@yarn
+endif
+
+node-assets : yarn-check
 	@$(make-node-assets)
 
 .PHONY: jekyll
