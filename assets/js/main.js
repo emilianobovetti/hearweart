@@ -1,3 +1,5 @@
+/* global maybe */
+
 (function (document, window) {
   var navToggle = document.getElementById('nav-toggle')
 
