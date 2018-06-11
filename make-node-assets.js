@@ -1,6 +1,6 @@
 
-const copydir = require('copy-dir');
-const package = require('./package.json');
+const copydir = require('copy-dir')
+const pack = require('./package.json')
 
-Object.keys(package.dependencies)
-    .forEach(dep => copydir.sync('./node_modules/' + dep, './node-assets/' + dep));
+Object.keys(pack.dependencies)
+  .forEach(dep => copydir.sync('./node_modules/' + dep, './node-assets/' + dep))
