@@ -12,7 +12,7 @@ deploy : all
 
 .PHONY: yarn-check
 yarn-check :
-ifeq ("$(wildcard node_modules)", "")
+ifeq ("$(wildcard node_modules/.bin)", "")
 	@yarn
 endif
 
