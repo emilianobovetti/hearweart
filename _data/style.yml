@@ -52,6 +52,12 @@
   name: heavy-padding
   value: 40px
 
+# Radius
+
+-
+  name: light-border-radius
+  value: 5px
+
 # Header
 -
   name: header-height

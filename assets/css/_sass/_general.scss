@@ -148,6 +148,11 @@ p, li {
   margin-bottom: 0;
 }
 
+.pure-button {
+  @extend .light-border-radius;
+  color: $dark-gray;
+}
+
 blockquote {
   font-style: italic;
 }
@@ -214,6 +219,10 @@ blockquote:after {
 
 // Text color classes
 
+.white {
+  color: white;
+}
+
 .dark-gray {
   color: $dark-gray;
 }
@@ -237,35 +246,8 @@ blockquote:after {
 // Border radius classes
 
 .light-border-radius {
-  border-radius: 5px;
+  border-radius: $light-border-radius;
 }
-
-// Buttons
-        .button-success,
-        .button-error,
-        .button-warning,
-        .button-secondary {
-            color: white;
-            border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        }
-
-        .button-success {
-            background: rgb(28, 184, 65); /* this is a green */
-        }
-
-        .button-error {
-            background: rgb(202, 60, 60); /* this is a maroon */
-        }
-
-        .button-warning {
-            background: rgb(223, 117, 20); /* this is an orange */
-        }
-
-        .button-secondary {
-            background: rgb(66, 184, 221); /* this is a light blue */
-        }
-
 
 // Background color classes
 

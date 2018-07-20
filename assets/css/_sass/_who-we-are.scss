@@ -1,28 +1,6 @@
-.who-we-are-parallax {
-  background-repeat: no-repeat;
+.who-we-are {
 
-  .rellax.white-bg {
-    z-index: 1;
-  }
-
-  @media screen and (min-width: 550px) {
-    height: 450px;
-    background-image: asset-url("img/scola-sm.jpg");
-  }
-
-  @media screen and (min-width: $sm-width) {
-    background-image: asset-url("img/scola-md.jpg");
-  }
-
-  @media screen and (min-width: $md-width) {
-    background-image: asset-url("img/scola-lg.jpg");
-  }
-
-  @media screen and (min-width: $lg-width) {
-    background-image: asset-url("img/scola-xl.jpg");
-  }
-
-  @media screen and (min-width: $xl-width) {
-    background-image: asset-url("img/scola-xxl.jpg");
+  img {
+    width: 300px;
   }
 }
