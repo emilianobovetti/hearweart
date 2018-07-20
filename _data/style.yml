@@ -41,3 +41,6 @@
 -
   name: lg-header-height
   value: 65px
+-
+  name: header-border
+  value: 2px;

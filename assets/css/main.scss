@@ -20,9 +20,11 @@ $assets-path: "{{ 'assets' | relative_url }}";
 @import
   "_sass/_general.scss",
   "_sass/_hamburger.scss",
+  "_sass/_menu.scss",
   "_sass/_header.scss",
   "_sass/_footer.scss",
   "_sass/_gallery.scss",
   "_sass/_home.scss",
   "_sass/_contact-us.scss",
+  "_sass/_the-school.scss",
   "_sass/_donate.scss";
