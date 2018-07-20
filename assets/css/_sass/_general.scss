@@ -95,6 +95,7 @@ a {
   color: $medium-orange;
 }
 
+a:hover,
 a:visited {
   color: $dark-orange;
 }
@@ -156,7 +157,8 @@ p, li {
   margin-bottom: 0;
 }
 
-.pure-button,
+a.pure-button,
+a.pure-button:hover,
 a.pure-button:active {
   @extend .light-border-radius;
   color: $dark-gray;
@@ -192,6 +194,14 @@ blockquote:after {
   @media screen and (min-width: $lg-width) {
     padding: 0 2em;
   }
+}
+
+.fa-facebook-f {
+  color: $dark-blue;
+}
+
+.fa-envelope {
+  color: $dark-orange;
 }
 
 .youtube {

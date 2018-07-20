@@ -1,7 +1,15 @@
 .site-footer {
-  //background-color: $dark-gray;
   background-color: black;
   color: $very-light-gray;
   font-size: 0.8em;
   margin-top: 50px;
+
+  .creative-commons {
+    position: relative;
+    bottom: 3px;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
