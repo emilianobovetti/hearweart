@@ -1,15 +1,12 @@
 .who-we-are-parallax {
   background-repeat: no-repeat;
-  height: 600px;
 
-  /*
-  z-index: -1;
-  transform: translate3d(0, 0, 0);
-  position: relative;
-  /**/
-
+  .rellax.white-bg {
+    z-index: 1;
+  }
 
   @media screen and (min-width: 550px) {
+    height: 450px;
     background-image: asset-url("img/scola-sm.jpg");
   }
 
