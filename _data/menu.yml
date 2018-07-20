@@ -2,6 +2,12 @@
   name: <i class="fas fa-home hide-on-lg"></i>
   route: /
 -
+  name: About
+  route: about
+-
+  name: Who we are
+  route: who-we-are
+-
   name: projects
   childs:
     -
@@ -16,9 +22,6 @@
 -
   name: The school
   route: the-school
--
-  name: Who we are
-  route: who-we-are
 -
   name: Contact us
   route: contact-us

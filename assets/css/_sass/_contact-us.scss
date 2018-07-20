@@ -3,42 +3,32 @@
 
   .pure-form input,
   .pure-form textarea {
-    background-color: #ffdada;
+    background-color: white;
   }
 
   .pure-form textarea {
-    height: 150px;
+    height: 180px;
     resize: none;
   }
-}
 
-.contact-us p {
-  font-size: 20px;
-  color: white;
-}
-
-@media screen and (min-width: $sm-width) {
-  .contact-us {
-    padding: 20px 50px;
+  form, .google-map {
+    margin: 0 $light-margin;
   }
 
-  .contact-us p {
-    font-size: 25px;
-  }
-}
-
-@media screen and (min-width: $md-width) {
-  .contact-us {
-    padding: 30px 150px;
-  }
-}
-
-@media screen and (min-width: $lg-width) {
-  .contact-us {
-    padding: 50px 200px;
+  .google-map iframe {
+    height: 412px;
   }
 
-  .contact-us p {
-    font-size: 30px;
+  @media screen and (min-width: $md-width) {
+    .google-map {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      top: 28px;
+    }
+
+    .google-map iframe {
+      margin-left: $medium-margin;
+    }
   }
 }
