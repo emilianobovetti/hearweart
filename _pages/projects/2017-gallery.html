@@ -21,10 +21,10 @@ css: ['node-assets/lightgallery.js/dist/css/lightgallery.min.css']
 {% endfor %}
 </div>
 
-<script src="{{ 'node-assets/lightgallery.js/dist/js/lightgallery.min.js' | relative_url }}"></script>
+<script src="{{ site.baseurl }}{% link node-assets/lightgallery.js/dist/js/lightgallery.min.js %}"></script>
 
 <script>
 (function (document) {
-    lightGallery(document.getElementById('lightgallery'));
+  lightGallery(document.getElementById('lightgallery'));
 })(document);
 </script>

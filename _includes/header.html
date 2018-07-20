@@ -8,18 +8,7 @@
     <span class="icon"></span>
   </button>
 
-  <nav id="menu" class="pure-menu pure-menu-horizontal">
-    {% assign menu_items = site.data.menu %}
-    {% include menu-items.html %}
-
-    <div class="heading-social">
-      {% for item in site.data.social %}
-        <a href="{{ item.link | replace: '<email>', site.email }}" class="pure-menu-heading" target="_blank">
-          <i class="{{ item.fa_class }}" aria-hidden="true"></i>
-        </a>
-      {% endfor %}
-    </div>
-  </nav>
+  {% include menu.html %}
 
 </header>
 

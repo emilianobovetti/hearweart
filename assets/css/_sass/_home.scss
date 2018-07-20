@@ -34,12 +34,6 @@
   z-index: 1;
 }
 
-.home-section-quote {
-  border-bottom: 100px solid white;
-  background: $medium-orange;
-  color: white;
-}
-
 @media screen and (min-width: $md-width) {
   .home-section-main {
     h1, h2 {

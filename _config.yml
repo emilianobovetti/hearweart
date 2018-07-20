@@ -33,6 +33,8 @@ sass:
 include: [_pages]
 
 exclude:
+  - make-node-assets.js
+  - README.md
   - Makefile
   - Gemfile
   - Gemfile.lock

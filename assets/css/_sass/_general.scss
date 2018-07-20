@@ -59,7 +59,6 @@
 }
 
 html {
-  font-family: 'Metropolis', sans-serif;
   color: $dark-gray;
   font-size: 11px;
 
@@ -72,10 +71,27 @@ html {
   }
 }
 
+.content-container,
+h1, h2, h3, h4, h5, h6, p, header, blockquote, ul li {
+  font-family: 'Metropolis', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @extend .heavy-vertical-margin;
-  font-size: 2em;
 }
+
+/*
+ * Linear fit
+ *
+ * g(x) = 0.02*x**2 - 0.4*x + 2.6
+ */
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.9em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.1em; }
+h6 { font-size: 0.9em; }
+
 
 ul {
   list-style-type: none;
@@ -214,59 +230,107 @@ blockquote:after {
 
 // Light margin
 
-.light-margin-top {
+.light-top-margin {
   margin-top: $light-margin;
 }
 
-.light-margin-bottom {
+.light-bottom-margin {
   margin-bottom: $light-margin;
 }
 
+.light-left-margin {
+  margin-left: $light-margin;
+}
+
+.light-right-margin {
+  margin-right: $light-margin;
+}
+
 .light-vertical-margin {
-  @extend .light-margin-top;
-  @extend .light-margin-bottom;
+  @extend .light-top-margin;
+  @extend .light-bottom-margin;
+}
+
+.light-horizontal-margin {
+  @extend .light-left-margin;
+  @extend .light-right-margin;
 }
 
 .light-margin {
-  margin: $light-margin;
+  @extend .light-top-margin;
+  @extend .light-bottom-margin;
+  @extend .light-left-margin;
+  @extend .light-right-margin;
 }
 
 // Medium margin
 
-.medium-margin-top {
+.medium-top-margin {
   margin-top: $medium-margin;
 }
 
-.medium-margin-bottom {
+.medium-bottom-margin {
   margin-bottom: $medium-margin;
 }
 
+.medium-left-margin {
+  margin-left: $medium-margin;
+}
+
+.medium-right-margin {
+  margin-right: $medium-margin;
+}
+
 .medium-vertical-margin {
-  @extend .medium-margin-top;
-  @extend .medium-margin-bottom;
+  @extend .medium-top-margin;
+  @extend .medium-bottom-margin;
+}
+
+.medium-horizontal-margin {
+  @extend .medium-left-margin;
+  @extend .medium-right-margin;
 }
 
 .medium-margin {
-  margin: $medium-margin;
+  @extend .medium-top-margin;
+  @extend .medium-bottom-margin;
+  @extend .medium-left-margin;
+  @extend .medium-right-margin;
 }
 
 // Heavy margin
 
-.heavy-margin-top {
+.heavy-top-margin {
   margin-top: $heavy-margin;
 }
 
-.heavy-margin-bottom {
+.heavy-bottom-margin {
   margin-bottom: $heavy-margin;
 }
 
+.heavy-left-margin {
+  margin-left: $heavy-margin;
+}
+
+.heavy-right-margin {
+  margin-right: $heavy-margin;
+}
+
 .heavy-vertical-margin {
-  @extend .heavy-margin-top;
-  @extend .heavy-margin-bottom;
+  @extend .heavy-top-margin;
+  @extend .heavy-bottom-margin;
+}
+
+.heavy-horizontal-margin {
+  @extend .heavy-left-margin;
+  @extend .heavy-right-margin;
 }
 
 .heavy-margin {
-  margin: $heavy-margin;
+  @extend .heavy-top-margin;
+  @extend .heavy-bottom-margin;
+  @extend .heavy-left-margin;
+  @extend .heavy-right-margin;
 }
 
 // Float classes

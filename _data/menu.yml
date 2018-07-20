@@ -5,11 +5,17 @@
   name: projects
   childs:
     -
-      name: 2017 pilot project
-      route: 2017-pilot-project
+      name: 2017 pilot program
+      route: 2017-pilot-program
     -
       name: 2017 gallery
       route: 2017-gallery
+    -
+      name: 2018 workshops
+      route: 2018-workshops
+-
+  name: The school
+  route: the-school
 -
   name: Who we are
   route: who-we-are
