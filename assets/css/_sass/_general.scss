@@ -63,14 +63,17 @@ html {
   font-size: 13px;
 
   @media screen and (min-width: $sm-width) {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   @media screen and (min-width: $lg-width) {
-    font-size: 17px;
+    //font-size: 11pt;
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1em;
+}
 
 .content-container,
 .pure-g [class*="pure-u"],
@@ -237,6 +240,33 @@ blockquote:after {
   border-radius: 5px;
 }
 
+// Buttons
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+
+
 // Background color classes
 
 .white-bg {
@@ -249,6 +279,10 @@ blockquote:after {
 
 .very-light-orange-bg {
   background-color: $very-light-orange;
+}
+
+.medium-orange-bg {
+  background-color: $medium-orange;
 }
 
 // Text align classes
@@ -282,6 +316,13 @@ blockquote:after {
 
 .no-margin {
   margin: 0;
+}
+
+// auto margin
+
+.auto-margin {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Light margin
@@ -512,6 +553,12 @@ blockquote:after {
 
 @media screen and (min-width: $sm-width) {
   //
+}
+
+@media screen and (max-width: $md-width) {
+  .rellax {
+    transform: translate3d(0, 0, 0) !important;
+  }
 }
 
 @media screen and (min-width: $md-width) {
