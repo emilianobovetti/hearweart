@@ -1,27 +1,34 @@
-# Text colors
+# Colors
+
 -
-  name: dark-gray
-  value: '#414141'
+  name: very-light-gray
+  value: '#fafafa'
 -
   name: light-gray
   value: '#aaa'
 -
+  name: medium-gray
+  value: '#eee'
+-
+  name: dark-gray
+  value: '#414141'
+
+-
+  name: very-light-orange
+  value: '#ffd599'
+-
   name: medium-orange
-  value: '#ff7512'
+  value: '#ff8f54'
 -
   name: dark-orange
   value: '#ff5900'
+
 -
   name: light-blue
   value: '#83a8f0'
 -
   name: dark-blue
   value: '#155de9'
-
-# Background colors
--
-  name: bg-light-gray
-  value: '#fafafa'
 
 # Margins
 -
@@ -32,6 +39,17 @@
   value: 20px
 -
   name: heavy-margin
+  value: 40px
+
+# Paddings
+-
+  name: light-padding
+  value: 10px
+-
+  name: medium-padding
+  value: 20px
+-
+  name: heavy-padding
   value: 40px
 
 # Header
