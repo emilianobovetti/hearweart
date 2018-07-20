@@ -91,6 +91,14 @@ h1, h2, h3, h4, h5, h6 {
   @extend .heavy-vertical-margin;
 }
 
+a {
+  color: $medium-orange;
+}
+
+a:visited {
+  color: $dark-orange;
+}
+
 /*
  * Linear fit
  *
@@ -148,7 +156,8 @@ p, li {
   margin-bottom: 0;
 }
 
-.pure-button {
+.pure-button,
+a.pure-button:active {
   @extend .light-border-radius;
   color: $dark-gray;
 }

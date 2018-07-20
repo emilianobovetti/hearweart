@@ -1,45 +1,6 @@
-.donate {
-  background-image: asset-url("img/donate-background.jpg");
+.donate-parallax {
+  background-image: asset-url("img/donate.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: $header-height;
-  bottom: 0;
-  padding: 100px 5px;
-}
-
-.donate p {
-  font-size: 20px;
-  color: white;
-}
-
-.donate strong {
-  color: #fff000;
-}
-
-@media screen and (min-width: $sm-width) {
-  .donate {
-    padding: 100px 50px;
-  }
-
-  .donate p {
-    font-size: 25px;
-  }
-}
-
-@media screen and (min-width: $md-width) {
-  .donate {
-    padding: 100px 150px;
-  }
-}
-
-@media screen and (min-width: $lg-width) {
-  .donate {
-    top: $lg-header-height;
-    padding: 100px 200px;
-  }
-
-  .donate p {
-    font-size: 30px;
-  }
+  background-size: 100%;
+  height: 550px;
 }

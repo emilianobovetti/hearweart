@@ -1,36 +1,94 @@
 ---
 permalink: "donate"
-layout: page
+layout: default
 title: Please Donate
 ---
 
-<div class="rellax about-parallax" data-rellax-speed="-4" data-rellax-percentage="0.5"></div>
+<div class="rellax donate-parallax" data-rellax-speed="-6" data-rellax-percentage="0.49">
+</div>
 
-<h1>Hear We Art is totally dependent on donations. To make the 2018 workshops happen we need <a href="#budget">£11,000</a>*</h1>
+<div class="rellax white-bg" data-rellax-speed="0">
 
-<p>This will allow us to deliver the workshops to 100 or so children. Please <strong>help us bring joy, fulfilment and potentially transform the life chances of these children</strong>.</p>
+  <div class="content-container">
 
-<p>Thanks to your support we’ll be able to send three artists and creatives to Sri Lanka and pay for the involvement of several local creatives and craftsmen .We plan to buy four more computers, at £250 each (three were in 2017 and will be used again), ten cameras at £100 each, plus all the related software.</p>
+    <h1>Hear We Art is totally dependent on donations.</h1>
 
-<p>The rest of the budget will be used to buy tools and materials for the workshops (such as stencils, photography materials, wood carving tools etc.).</p>
+    <p>To make the 2018 workshops happen we need your help! The total amount of the project is <a href="#budget">£11,000</a>. This will allow us to deliver the workshops to 100 or so children. Please <strong>help us bring joy, fulfilment and potentially transform the life chances of these children</strong>.</p>
 
-<p><strong>All the materials purchased for the projects will be left to the school at the end of our activities!</strong></p>
+    <p>Thanks to your support we’ll be able to send three artists and creatives to Sri Lanka and pay for the involvement of several local creatives and craftsmen .We plan to buy four more computers, at £250 each (three were in 2017 and will be used again), ten cameras at £100 each, plus all the related software.</p>
 
-<h2>To donate please <a href="#TODO">click here</a></h2>
+    <p>The rest of the budget will be used to buy tools and materials for the workshops (such as stencils, photography materials, wood carving tools etc.).</p>
 
-<p id="budget">* The above budget includes no provision to help fund the artists for the very substantial time they are spending to design, develop and prepare the workshops and the five weeks spent travelling to and in Sri Lanka.</p>
+    <p><strong>All the materials purchased for the projects will be left to the school at the end of our activities!</strong></p>
 
-<h2>To see how to permit the artists  to realise the project, please <a href="#TODO">click here</a></h2>
+    <div class="pure-g">
+      <div class="pure-u-3-4 auto-margin">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
 
-<h2 class="text-center">Many thanks indeed</h2>
+    <h2>To donate please <a href="https://www.gofundme.com/help-deaf-amp-blind-kids-of-sri-lanka">click here</a></h2>
 
-<p id="TODO"></p>
+    <p id="budget">* The above budget includes no provision to help fund the artists for the very substantial time they are spending to design, develop and prepare the workshops and the five weeks spent travelling to and in Sri Lanka.</p>
 
-<!--
-<section class="donate">
-  <p class="text-center"><strong>Hear We Art</strong> is run by donation, which are 100% directed to help us running our yearly workshops. Scroll down if you want to donate or if you are thinking about joining us!</p>
-</section>
--->
+    <h2>To see how to permit the artists  to realise the project, please <a href="https://www.gofundme.com/fund-artists-to-help-deaf-children">click here</a></h2>
+
+    <h2 class="text-center">Many thanks indeed</h2>
+
+  </div>
+</div>
 
 <script src="{{ 'node-assets/rellax/rellax.min.js' | relative_url }}"></script>
 <script>new Rellax('.rellax')</script>
+
+<script src="{{ 'node-assets/chart.js/dist/Chart.min.js' | relative_url }}"></script>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: [
+          'Accomodation',
+          'Local expert salary',
+          'Mural art',
+          'Graphic design',
+          'Photography',
+          'Wood carving',
+          'Travelling insurance and visa',
+        ],
+        datasets: [{
+            label: '# of Votes',
+            data: [ 6, 8, 6, 25, 15, 10, 30 ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(209, 200, 228, 1)',
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(147, 54, 27, 1)',
+            ],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
