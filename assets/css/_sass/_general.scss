@@ -76,6 +76,10 @@ h1, h2, h3, h4, h5, h6, p, header, blockquote, ul li {
   font-family: 'Metropolis', sans-serif;
 }
 
+.content-container, p, header, blockquote, ul li {
+  line-height: 1.5em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @extend .heavy-vertical-margin;
 }
@@ -105,10 +109,6 @@ ul {
 
 p, li {
   @extend .medium-vertical-margin;
-}
-
-p {
-  line-height: 1.5em;
 }
 
 blockquote {
