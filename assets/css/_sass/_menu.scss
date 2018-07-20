@@ -122,16 +122,12 @@
   }
 }
 
-.fa-twitter {
-  color: desaturate($light-blue, 20%);
-}
-
 .fa-facebook-f {
-  color: desaturate($dark-blue, 20%);
+  color: $dark-blue;
 }
 
 .fa-envelope {
-  color: desaturate($medium-orange, 20%);
+  color: $medium-orange;
 }
 
 @media screen and (min-width: $lg-width) {

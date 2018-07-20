@@ -189,10 +189,20 @@ blockquote:after {
   color: $dark-blue;
 }
 
+// Border radius classes
+
+.light-border-radius {
+  border-radius: 5px;
+}
+
 // Background color classes
 
-.bg-light-gray {
-  background-color: $bg-light-gray;
+.very-light-gray-bg {
+  background-color: $very-light-gray;
+}
+
+.very-light-orange-bg {
+  background-color: $very-light-orange;
 }
 
 // Text align classes
@@ -331,6 +341,111 @@ blockquote:after {
   @extend .heavy-bottom-margin;
   @extend .heavy-left-margin;
   @extend .heavy-right-margin;
+}
+
+// Light padding
+
+.light-top-padding {
+  padding-top: $light-padding;
+}
+
+.light-bottom-padding {
+  padding-bottom: $light-padding;
+}
+
+.light-left-padding {
+  padding-left: $light-padding;
+}
+
+.light-right-padding {
+  padding-right: $light-padding;
+}
+
+.light-vertical-padding {
+  @extend .light-top-padding;
+  @extend .light-bottom-padding;
+}
+
+.light-horizontal-padding {
+  @extend .light-left-padding;
+  @extend .light-right-padding;
+}
+
+.light-padding {
+  @extend .light-top-padding;
+  @extend .light-bottom-padding;
+  @extend .light-left-padding;
+  @extend .light-right-padding;
+}
+
+// Medium padding
+
+.medium-top-padding {
+  padding-top: $medium-padding;
+}
+
+.medium-bottom-padding {
+  padding-bottom: $medium-padding;
+}
+
+.medium-left-padding {
+  padding-left: $medium-padding;
+}
+
+.medium-right-padding {
+  padding-right: $medium-padding;
+}
+
+.medium-vertical-padding {
+  @extend .medium-top-padding;
+  @extend .medium-bottom-padding;
+}
+
+.medium-horizontal-padding {
+  @extend .medium-left-padding;
+  @extend .medium-right-padding;
+}
+
+.medium-padding {
+  @extend .medium-top-padding;
+  @extend .medium-bottom-padding;
+  @extend .medium-left-padding;
+  @extend .medium-right-padding;
+}
+
+// Heavy padding
+
+.heavy-top-padding {
+  padding-top: $heavy-padding;
+}
+
+.heavy-bottom-padding {
+  padding-bottom: $heavy-padding;
+}
+
+.heavy-left-padding {
+  padding-left: $heavy-padding;
+}
+
+.heavy-right-padding {
+  padding-right: $heavy-padding;
+}
+
+.heavy-vertical-padding {
+  @extend .heavy-top-padding;
+  @extend .heavy-bottom-padding;
+}
+
+.heavy-horizontal-padding {
+  @extend .heavy-left-padding;
+  @extend .heavy-right-padding;
+}
+
+.heavy-padding {
+  @extend .heavy-top-padding;
+  @extend .heavy-bottom-padding;
+  @extend .heavy-left-padding;
+  @extend .heavy-right-padding;
 }
 
 // Float classes
