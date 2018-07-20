@@ -1,9 +1,15 @@
 .contact-us {
   background: $medium-orange;
-  position: absolute;
-  top: $header-height;
-  bottom: 0;
-  padding: 0 5px;
+
+  .pure-form input,
+  .pure-form textarea {
+    background-color: #ffdada;
+  }
+
+  .pure-form textarea {
+    height: 150px;
+    resize: none;
+  }
 }
 
 .contact-us p {
@@ -29,7 +35,6 @@
 
 @media screen and (min-width: $lg-width) {
   .contact-us {
-    top: $lg-header-height;
     padding: 50px 200px;
   }
 

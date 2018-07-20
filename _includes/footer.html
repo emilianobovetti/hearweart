@@ -1,15 +1,22 @@
-<footer class="site-footer pure-g">
-  <div class="pure-u-1-2">
-    <p>Hello there, children!</p>
-  </div>
+<footer class="site-footer light-padding">
+  <p class="no-margin light-bottom-margin uppercase">Contact us
 
-  <div class="pure-u-1-5">
-    <p>Contact</p>
-  </div>
+    {% for item in site.data.social %}
+      <a class="light-horizontal-margin" href="{{ item.link | replace: '<email>', site.email }}" target="_blank">
+        <i class="{{ item.class }}" aria-hidden="true"></i>
+      </a>
+    {% endfor %}
+  </p>
 
-  <div class="pure-u-1-5">
-    <p>Blah</p>
-  </div>
+
+  <p class="no-margin light-bottom-margin">Studio Arco APS: Arco degli Acetari, 40, Roma</p>
+
+  <p class="no-margin">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png">
+    </a>
+    This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+  </p>
 </footer>
 
 <script src="{{ 'node-assets/stateless-maybe-js/dist/maybe.min.js' | relative_url }}"></script>

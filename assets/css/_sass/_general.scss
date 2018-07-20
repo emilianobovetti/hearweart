@@ -60,7 +60,7 @@
 
 html {
   color: $dark-gray;
-  font-size: 11px;
+  font-size: 13px;
 
   @media screen and (min-width: $sm-width) {
     font-size: 15px;
@@ -71,12 +71,16 @@ html {
   }
 }
 
+
 .content-container,
+.pure-g [class*="pure-u"],
 h1, h2, h3, h4, h5, h6, p, header, blockquote, ul li {
   font-family: 'Metropolis', sans-serif;
 }
 
-.content-container, p, header, blockquote, ul li {
+.content-container,
+.pure-g [class*="pure-u"],
+p, header, blockquote, ul li {
   line-height: 1.5em;
 }
 
@@ -96,7 +100,6 @@ h4 { font-size: 1.3em; }
 h5 { font-size: 1.1em; }
 h6 { font-size: 0.9em; }
 
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -109,6 +112,37 @@ ul {
 
 p, li {
   @extend .medium-vertical-margin;
+}
+
+.pure-form input[type="text"],
+.pure-form input[type="password"],
+.pure-form input[type="email"],
+.pure-form input[type="url"],
+.pure-form input[type="date"],
+.pure-form input[type="month"],
+.pure-form input[type="time"],
+.pure-form input[type="datetime"],
+.pure-form input[type="datetime-local"],
+.pure-form input[type="week"],
+.pure-form input[type="number"],
+.pure-form input[type="search"],
+.pure-form input[type="tel"],
+.pure-form input[type="color"],
+.pure-form select,
+.pure-form textarea {
+  background-color: $light-gray;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin: 0 0 $medium-margin 0;
+}
+
+.pure-form-message {
+  display: inline;
+}
+
+.pure-form label {
+  margin-bottom: 0;
 }
 
 blockquote {
@@ -133,6 +167,14 @@ blockquote:after {
   max-width: 850px;
   padding: 0 5px;
   overflow: auto;
+
+  @media screen and (min-width: $md-width) {
+    padding: 0 1em;
+  }
+
+  @media screen and (min-width: $lg-width) {
+    padding: 0 2em;
+  }
 }
 
 .youtube {
@@ -196,6 +238,10 @@ blockquote:after {
 }
 
 // Background color classes
+
+.white-bg {
+  background-color: white;
+}
 
 .very-light-gray-bg {
   background-color: $very-light-gray;
@@ -465,16 +511,10 @@ blockquote:after {
 }
 
 @media screen and (min-width: $sm-width) {
-  .content-container {
-    padding: 0 3em;
-  }
+  //
 }
 
 @media screen and (min-width: $md-width) {
-  .content-container {
-    padding: 0 5em;
-  }
-
   .float-left-md {
     float: left;
   }

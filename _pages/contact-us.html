@@ -13,12 +13,25 @@ title: Contact Us
     <a class="dark-blue" href="mailto:{{ site.email }}">{{ site.email }}</a>
   </p>
 
-  <form class="pure-form pure-form-aligned">
+  <form class="content-container pure-form pure-form-stacked">
     <fieldset>
-      <div class="pure-control-group">
-        <label for="name">Ciao</label>
-         <input id="name" type="text" placeholder="scrivi qui">
+      <legend>Contact form</legend>
+
+      <div class="pure-g">
+        <label class="pure-u-1" for="name">Your name</label>
+        <input class="pure-u-1" id="name" type="text">
+
+        <label class="pure-u-1" for="email">Your email <span class="pure-form-message">(required)</span></label>
+        <input class="pure-u-1" id="email" type="email" required>
+
+        <label class="pure-u-1" for="subject">Subject</label>
+        <input class="pure-u-1" id="subject" type="text">
+
+        <label class="pure-u-1" for="message">Your message <span class="pure-form-message">(required)</span></label>
+        <textarea class="pure-u-1" id="message" required></textarea>
       </div>
+
+      <button type="submit" class="pure-button">Send</button>
     </fieldset>
   </form>
 </section>
