@@ -19,6 +19,11 @@
     height: 412px;
   }
 
+  h1 {
+    color: white;
+    margin-left: $light-margin;
+  }
+
   @media screen and (min-width: $md-width) {
     .google-map {
       position: relative;
