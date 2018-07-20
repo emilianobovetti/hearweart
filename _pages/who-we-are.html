@@ -4,7 +4,10 @@ layout: default
 title: Who We Are
 ---
 
-<div class="very-light-gray-bg">
+<section class="rellax who-we-are-parallax" data-rellax-speed="-6" data-rellax-percentage="0.65">
+</section>
+
+<div class="rellax white-bg" data-rellax-speed="0" very-light-gray-bg">
   <div class="content-container">
     <h1>The <em>Hear We Art</em> Team</h1>
 
@@ -63,7 +66,14 @@ title: Who We Are
 
   <p class="no-margin heavy-bottom-margin pure-u-1 pure-u-md-1-2">Nicole is a Mural Artist and Storyteller based in Sheffield, England. She is interested in the link between creativity and education, and how to encourage engagement using playful ways of making. She has explored this through through leading workshops, community mural projects, mainstream and alternative school settings in England and Peru, creating art and murals with young people. Currently she is working as a freelance Mural Artist. She painted her first mural in Pisco, Peru for an Earthquake relief organisation called Pisco Sin Fronteras and has been passionate to share the empowerment of mural painting ever since.</p>
 
-  <h2 class="uppercase no-margin-top light-gray font-weight-normal">Graphic Design and 2D Animation Tutor</h2>
+  <section class="pure-u-1 pure-u-sm-2-3 pure-u-md-5-12 float-right-md">
+    <img
+      alt="Nicole White"
+      class="pure-u-1 heavy-bottom-margin"
+      src="{{ 'assets/img/nicole-white.jpg' | relative_url }}">
+  </section>
+
+  <h2 class="uppercase no-margin-top light-gray font-weight-normal">2D Animation Tutor</h2>
 
   <h2 class="dark-gray font-weight-normal">Niroshan Bandara</h2>
 
@@ -73,4 +83,14 @@ title: Who We Are
     <p class="no-margin medium-top-margin">After Resuming from the TV station, currently working as a freelance artist almost 03 Years, for local and international Clients, as well as working as a visiting Lecture for Graphic / web & interactive design/ Animation in several Universities & Academies.</p>
   </div>
 
+  <section class="pure-u-1 pure-u-sm-2-3 pure-u-md-5-12 float-right-md">
+    <img
+      alt="Niroshan Bandara"
+      class="pure-u-1 heavy-bottom-margin"
+      src="{{ 'assets/img/niroshan-bandara.jpg' | relative_url }}">
+  </section>
+
 </div>
+
+<script src="{{ 'node-assets/rellax/rellax.min.js' | relative_url }}"></script>
+<script>new Rellax('.rellax')</script>
