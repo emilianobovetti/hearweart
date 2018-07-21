@@ -22,8 +22,8 @@ title: Please Donate
     <p><strong>All the materials purchased for the projects will be left to the school at the end of our activities!</strong></p>
 
     <div class="pure-g">
-      <div class="pure-u-3-4 auto-margin">
-        <canvas id="myChart"></canvas>
+      <div class="pure-u-1 pure-u-md-3-4 auto-margin donate-chart-container">
+        <canvas id="donate-chart"></canvas>
       </div>
     </div>
 
@@ -44,10 +44,21 @@ title: Please Donate
 <script src="{{ 'node-assets/chart.js/dist/Chart.min.js' | relative_url }}"></script>
 
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
+  var chart = {
+    element: document.getElementById('donate-chart'),
+
+    getContext: function (contextType) {
+      return chart.element.getContext(contextType);
+    },
+
+    draw: function () {
+      return chart.obj = new Chart(chart.getContext('2d'), chart.settings);
+    },
+
+    settings: {
+      type: 'doughnut',
+
+      data: {
         labels: [
           'Accomodation',
           'Local expert salary',
@@ -55,40 +66,55 @@ var myChart = new Chart(ctx, {
           'Graphic design',
           'Photography',
           'Wood carving',
-          'Travelling insurance and visa',
+          'Travelling insurance and visa'
         ],
-        datasets: [{
-            label: '# of Votes',
+        datasets: [
+          {
             data: [ 6, 8, 6, 25, 15, 10, 30 ],
+            borderWidth: 0,
+            hoverBorderWidth: 0,
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(209, 200, 228, 1)',
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(147, 54, 27, 1)',
-            ],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 206, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(153, 102, 255)',
+              'rgb(255, 159, 64)',
+              'rgb(209, 200, 221)'
+            ]
+          }
+        ]
+      },
+
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200
         }
+      }
     }
-});
+  };
+
+  function clientHeight () {
+    return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  }
+
+  function elementTopPosition (element) {
+    return element.getBoundingClientRect().top;
+  }
+
+  function scrollListener (event) {
+    if (elementTopPosition(chart.element) < clientHeight()) {
+      chart.draw();
+
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }
+
+  chart.draw();
+
+  if (elementTopPosition(chart.element) > clientHeight()) {
+    window.addEventListener('scroll', scrollListener);
+  }
 </script>
