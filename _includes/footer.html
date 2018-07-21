@@ -1,11 +1,13 @@
 <footer class="site-footer light-padding">
   <p class="no-margin light-bottom-margin uppercase">Contact us
 
-    {% for item in site.data.social %}
-      <a class="light-horizontal-margin" href="{{ item.link | replace: '<email>', site.email }}" target="_blank">
-        <i class="{{ item.class }}" aria-hidden="true"></i>
-      </a>
-    {% endfor %}
+    <span class="social-links light-horizontal-margin">
+      {% for item in site.data.social %}
+        <a class="light-horizontal-margin" href="{{ item.link | replace: '<email>', site.email }}" target="_blank">
+          <i class="{{ item.class }}" aria-hidden="true"></i>
+        </a>
+      {% endfor %}
+    </span>
   </p>
 
   <p class="no-margin light-bottom-margin">Studio Arco APS: Arco degli Acetari, 40, Roma</p>
@@ -13,10 +15,11 @@
   <p class="no-margin light-bottom-margin">Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>/<a href="mailto:ohendel@hearweart.org">ohendel@hearweart.org</a></p>
 
   <p class="no-margin">
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+      <img alt="Creative Commons License" style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png">
     </a>
 
-    <span class="creative-commons">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+    <span class="creative-commons">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
     </span>
   </p>
 </footer>
