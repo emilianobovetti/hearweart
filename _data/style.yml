@@ -5,10 +5,10 @@
   value: '#fafafa'
 -
   name: light-gray
-  value: '#aaa'
+  value: '#ddd'
 -
   name: medium-gray
-  value: '#eee'
+  value: '#aaa'
 -
   name: dark-gray
   value: '#414141'
