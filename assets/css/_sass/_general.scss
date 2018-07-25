@@ -184,15 +184,15 @@ blockquote:after {
 .content-container {
   margin: 0 auto;
   max-width: 850px;
-  padding: 0 5px;
+  padding: 0 1em;
   overflow: auto;
 
-  @media screen and (min-width: $md-width) {
-    padding: 0 1em;
+  @media screen and (min-width: $sm-width) {
+    padding: 0 2em;
   }
 
-  @media screen and (min-width: $lg-width) {
-    padding: 0 2em;
+  @media screen and (min-width: $md-width) {
+    padding: 0 3em;
   }
 }
 
