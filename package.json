@@ -4,7 +4,7 @@
     "lightgallery.js": "^1.0.2",
     "purecss": "^1.0.0",
     "rellax": "^1.6.0",
-    "stateless-maybe-js": "^2.1.7"
+    "stateless-maybe-js": "^2.2.1"
   },
   "devDependencies": {
     "copy-dir": "^0.4.0",

@@ -65,10 +65,6 @@ html {
   @media screen and (min-width: $sm-width) {
     font-size: 14px;
   }
-
-  @media screen and (min-width: $lg-width) {
-    //font-size: 11pt;
-  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -311,21 +307,37 @@ blockquote:after {
 
 // Zero margin
 
-.no-margin-top {
+.no-top-margin {
   margin-top: 0;
 }
 
-.no-margin-bottom {
+.no-bottom-margin {
   margin-bottom: 0;
 }
 
+.no-left-margin {
+  margin-left: 0;
+}
+
+.no-right-margin {
+  margin-right: 0;
+}
+
 .no-vertical-margin {
-  @extend .no-margin-top;
-  @extend .no-margin-bottom;
+  @extend .no-top-margin;
+  @extend .no-bottom-margin;
+}
+
+.no-horizontal-margin {
+  @extend .no-left-margin;
+  @extend .no-right-margin;
 }
 
 .no-margin {
-  margin: 0;
+  @extend .no-top-margin;
+  @extend .no-bottom-margin;
+  @extend .no-left-margin;
+  @extend .no-right-margin;
 }
 
 // auto margin
