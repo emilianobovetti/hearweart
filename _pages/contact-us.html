@@ -10,23 +10,50 @@ title: Contact Us
     <h1 class="pure-u-1 no-margin">Contact us</h1>
 
     <div class="pure-u-1 pure-u-md-1-2">
-      <form class="pure-form pure-form-stacked">
-        <fieldset>
+      <form
+        class="pure-form pure-form-stacked"
+        action="https://formspree.io/info@hearweart.org"
+        method="POST">
+          <fieldset>
 
-          <label class="pure-u-1" for="name">Your name</label>
-          <input class="pure-u-1" id="name" type="text">
+            <label class="pure-u-1" for="name">Your name</label>
+            <input
+              class="pure-u-1"
+              type="text"
+              id="name"
+              name="_name">
 
-          <label class="pure-u-1" for="email">Your email <span class="pure-form-message">(required)</span></label>
-          <input class="pure-u-1" id="email" type="email" required>
+            <label class="pure-u-1" for="email">Your email <span class="pure-form-message">(required)</span></label>
+            <input
+              class="pure-u-1"
+              type="email"
+              id="email"
+              name="_replyto"
+              required>
 
-          <label class="pure-u-1" for="subject">Subject <span class="pure-form-message">(required)</span></label>
-          <input class="pure-u-1" id="subject" type="text" required>
+            <label class="pure-u-1" for="subject">Subject <span class="pure-form-message">(required)</span></label>
+            <input
+              class="pure-u-1"
+              type="text"
+              id="subject"
+              name="_subject"
+              required>
 
-          <label class="pure-u-1" for="message">Your message <span class="pure-form-message">(required)</span></label>
-          <textarea class="pure-u-1" id="message" required></textarea>
+            <label class="pure-u-1" for="message">Your message <span class="pure-form-message">(required)</span></label>
+            <textarea
+              class="pure-u-1"
+              id="message"
+              name="_message"
+              required>
+            </textarea>
 
-          <button type="submit" class="pure-button">Send</button>
-        </fieldset>
+            <button
+              class="pure-button"
+              type="submit"
+              value="Send">
+                Send
+            </button>
+          </fieldset>
       </form>
     </div>
 
