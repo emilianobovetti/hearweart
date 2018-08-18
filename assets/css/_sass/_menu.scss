@@ -7,10 +7,7 @@
   background: #eee;
   z-index: 10;
   text-align: center;
-
-  @media screen and (max-height: 400px) {
-    overflow: scroll;
-  }
+  overflow-y: scroll;
 }
 
 #menu.opened {
@@ -38,8 +35,9 @@
 
 .menu-heading {
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 0;
+  top: 0;
+  padding: 20px;
   display: block;
   text-decoration: none;
   font-weight: bold;
@@ -55,6 +53,7 @@
 
 .pure-menu-list > .pure-menu-item {
   width: 200px;
+  z-index: 10;
 }
 
 .pure-menu-active > .pure-menu-link,
@@ -131,6 +130,7 @@
 
   .menu-heading {
     font-size: 18px;
+    z-index: 20;
 
     .fa-home {
       font-size: 14px;

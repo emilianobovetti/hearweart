@@ -84,7 +84,8 @@ p, header, blockquote, ul li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @extend .heavy-vertical-margin;
+  margin-top: $heavy-margin;
+  margin-bottom: $heavy-margin;
 }
 
 a {
@@ -119,7 +120,8 @@ ul {
 }
 
 p, li {
-  @extend .medium-vertical-margin;
+  margin-top: $medium-margin;
+  margin-bottom: $medium-margin;
 }
 
 .pure-form input[type="text"],
@@ -308,19 +310,19 @@ blockquote:after {
 // Zero margin
 
 .no-top-margin {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .no-bottom-margin {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .no-left-margin {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 
 .no-right-margin {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 
 .no-vertical-margin {
@@ -350,19 +352,19 @@ blockquote:after {
 // Light margin
 
 .light-top-margin {
-  margin-top: $light-margin;
+  margin-top: $light-margin !important;
 }
 
 .light-bottom-margin {
-  margin-bottom: $light-margin;
+  margin-bottom: $light-margin !important;
 }
 
 .light-left-margin {
-  margin-left: $light-margin;
+  margin-left: $light-margin !important;
 }
 
 .light-right-margin {
-  margin-right: $light-margin;
+  margin-right: $light-margin !important;
 }
 
 .light-vertical-margin {
@@ -385,19 +387,19 @@ blockquote:after {
 // Medium margin
 
 .medium-top-margin {
-  margin-top: $medium-margin;
+  margin-top: $medium-margin !important;
 }
 
 .medium-bottom-margin {
-  margin-bottom: $medium-margin;
+  margin-bottom: $medium-margin !important;
 }
 
 .medium-left-margin {
-  margin-left: $medium-margin;
+  margin-left: $medium-margin !important;
 }
 
 .medium-right-margin {
-  margin-right: $medium-margin;
+  margin-right: $medium-margin !important;
 }
 
 .medium-vertical-margin {
@@ -420,19 +422,19 @@ blockquote:after {
 // Heavy margin
 
 .heavy-top-margin {
-  margin-top: $heavy-margin;
+  margin-top: $heavy-margin !important;
 }
 
 .heavy-bottom-margin {
-  margin-bottom: $heavy-margin;
+  margin-bottom: $heavy-margin !important;
 }
 
 .heavy-left-margin {
-  margin-left: $heavy-margin;
+  margin-left: $heavy-margin !important;
 }
 
 .heavy-right-margin {
-  margin-right: $heavy-margin;
+  margin-right: $heavy-margin !important;
 }
 
 .heavy-vertical-margin {
@@ -452,22 +454,57 @@ blockquote:after {
   @extend .heavy-right-margin;
 }
 
+// Zero padding
+
+.no-top-padding {
+  padding-top: 0 !important;
+}
+
+.no-bottom-padding {
+  padding-bottom: 0 !important;
+}
+
+.no-left-padding {
+  padding-left: 0 !important;
+}
+
+.no-right-padding {
+  padding-right: 0 !important;
+}
+
+.no-vertical-padding {
+  @extend .no-top-padding;
+  @extend .no-bottom-padding;
+}
+
+.no-horizontal-padding {
+  @extend .no-left-padding;
+  @extend .no-right-padding;
+}
+
+.no-padding {
+  @extend .no-top-padding;
+  @extend .no-bottom-padding;
+  @extend .no-left-padding;
+  @extend .no-right-padding;
+}
+
 // Light padding
 
 .light-top-padding {
-  padding-top: $light-padding;
+  padding-top: $light-padding !important;
 }
 
 .light-bottom-padding {
-  padding-bottom: $light-padding;
+  padding-bottom: $light-padding !important;
 }
 
 .light-left-padding {
-  padding-left: $light-padding;
+  padding-left: $light-padding !important;
 }
 
 .light-right-padding {
-  padding-right: $light-padding;
+  padding-right: $light-padding !important;
 }
 
 .light-vertical-padding {
@@ -490,19 +527,19 @@ blockquote:after {
 // Medium padding
 
 .medium-top-padding {
-  padding-top: $medium-padding;
+  padding-top: $medium-padding !important;
 }
 
 .medium-bottom-padding {
-  padding-bottom: $medium-padding;
+  padding-bottom: $medium-padding !important;
 }
 
 .medium-left-padding {
-  padding-left: $medium-padding;
+  padding-left: $medium-padding !important;
 }
 
 .medium-right-padding {
-  padding-right: $medium-padding;
+  padding-right: $medium-padding !important;
 }
 
 .medium-vertical-padding {
@@ -525,19 +562,19 @@ blockquote:after {
 // Heavy padding
 
 .heavy-top-padding {
-  padding-top: $heavy-padding;
+  padding-top: $heavy-padding !important;
 }
 
 .heavy-bottom-padding {
-  padding-bottom: $heavy-padding;
+  padding-bottom: $heavy-padding !important;
 }
 
 .heavy-left-padding {
-  padding-left: $heavy-padding;
+  padding-left: $heavy-padding !important;
 }
 
 .heavy-right-padding {
-  padding-right: $heavy-padding;
+  padding-right: $heavy-padding !important;
 }
 
 .heavy-vertical-padding {
@@ -560,11 +597,11 @@ blockquote:after {
 // Float classes
 
 .float-left {
-  float: left;
+  float: left !important;
 }
 
 .float-right {
-  float: right;
+  float: right !important;
 }
 
 // Responsive show

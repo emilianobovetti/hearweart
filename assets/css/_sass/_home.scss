@@ -19,12 +19,25 @@
   }
 }
 
-@media screen and (min-width: $md-width) {
+.home-col-container {
+  margin: 0 auto;
+  max-width: $xl-width;
+}
+
+@media screen and (min-width: $sm-width) {
   .home-section-main {
-    h1, h2 {
-      top: 35vh;
+    h1 {
+      font-size: 50px;
     }
 
+    h2 {
+      font-size: 35px;
+    }
+  }
+}
+
+@media screen and (min-width: $md-width) {
+  .home-section-main {
     h1 {
       font-size: 100px;
     }
