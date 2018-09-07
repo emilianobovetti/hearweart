@@ -39,7 +39,7 @@ thumbs :
 
 .PHONY: clean
 clean :
-	@rm -f yarn-error.log Gemfile.lock yarn.lock
+	@rm -f yarn-error.log Gemfile.lock
 	@rm -rf .jekyll-metadata .sass-cache .bundle
 	@rm -rf node_modules vendor _site
 	@rm -rf node-assets
