@@ -1,14 +1,9 @@
 empty :=
 comma := ,
 space := $(empty) $(empty)
-surge := node node_modules/surge/lib/cli.js
 make-node-assets := node make-node-assets.js
 
 all : jekyll htmlproofer
-
-.PHONY: deploy
-deploy : all
-	@$(surge) _site
 
 .PHONY: yarn-check
 yarn-check :

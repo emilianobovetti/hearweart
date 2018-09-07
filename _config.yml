@@ -20,7 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   including children from 4 to 18 years old.
   Our aim is to enrich children skills and abilities in practical art making.
 baseurl: '/' # the subpath of your site, e.g. /blog
-url: 'http://hearweart.org' # the base hostname & protocol for your site, e.g. http://example.com
+url: 'https://hearweart.org' # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown

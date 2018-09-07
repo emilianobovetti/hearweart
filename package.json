@@ -7,7 +7,6 @@
     "stateless-maybe-js": "^2.2.1"
   },
   "devDependencies": {
-    "copy-dir": "^0.4.0",
-    "surge": "^0.20.1"
+    "copy-dir": "^0.4.0"
   }
 }
