@@ -30,6 +30,13 @@ sass:
   sass_dir: assets/css
   style: compressed
 
+defaults:
+  -
+    scope:
+      path: "node-assets"
+    values:
+      sitemap: false
+
 include: [_pages]
 
 exclude:
