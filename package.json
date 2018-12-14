@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "chart.js": "^2.7.2",
-    "lightgallery.js": "^1.0.2",
+    "chart.js": "^2.7.3",
+    "lightgallery.js": "^1.1.2",
     "purecss": "^1.0.0",
-    "rellax": "^1.6.0",
-    "stateless-maybe-js": "^2.2.1"
+    "rellax": "^1.7.1",
+    "stateless-maybe-js": "^2.2.2"
   },
   "devDependencies": {
     "copy-dir": "^0.4.0"
