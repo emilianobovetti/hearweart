@@ -1,18 +1,12 @@
-empty :=
-comma := ,
-space := $(empty) $(empty)
-make-node-assets := node make-node-assets.js
+node_bin := node_modules/.bin
 
 all : jekyll htmlproofer
 
-.PHONY: yarn-check
-yarn-check :
-ifeq ("$(wildcard node_modules/.bin)", "")
+node_bin :
 	@yarn
-endif
 
-node-assets : yarn-check
-	@$(make-node-assets)
+node-assets : node_bin
+	@node make-node-assets.js
 
 .PHONY: jekyll
 jekyll : node-assets
