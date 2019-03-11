@@ -1,0 +1,22 @@
+sudo: false
+
+language: node_js
+node_js:
+  - "10"
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+script:
+  - make
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash deploy.sh
+
+addons:
+  apt:
+    update: true
