@@ -19,6 +19,9 @@
     -
       name: 2018 workshops
       route: 2018-workshops
+    -
+      name: 2019
+      route: 2019
 -
   name: The school
   route: the-school
