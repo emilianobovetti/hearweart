@@ -1,14 +1,17 @@
 -
-  name: <i class="fas fa-home hide-on-lg"></i>
+  name: Home
   route: /
 -
   name: About
-  route: about
+  childs:
+    -
+      name: About us
+      route: about
+    -
+      name: Who we are
+      route: who-we-are
 -
-  name: Who we are
-  route: who-we-are
--
-  name: projects
+  name: Projects
   childs:
     -
       name: 2017 pilot program
@@ -23,8 +26,11 @@
       name: 2019
       route: 2019
 -
-  name: The school
-  route: the-school
+  name: Partners
+  childs:
+    -
+      name: Senkadagala School
+      route: senkadagala-school
 -
   name: Contact us
   route: contact-us
