@@ -1,1 +1,1 @@
-# HearWeArt
+# HearWeArt [![Build Status](https://travis-ci.org/emilianobovetti/hearweart.svg?branch=master)](https://travis-ci.org/emilianobovetti/hearweart) [![Netlify Status](https://api.netlify.com/api/v1/badges/5fe3ed5e-7382-406a-8c89-52504510b64e/deploy-status)](https://app.netlify.com/sites/hearweart/deploys)
