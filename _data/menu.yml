@@ -28,6 +28,3 @@
 -
   name: Contact us
   route: contact-us
--
-  name: Donate
-  route: donate
