@@ -19,6 +19,7 @@ htmlproofer :
 		--file-ignore /node-assets/ \
 		--disable-external \
 		--assume-extension \
+		--allow-hash-href \
 		--check-html
 
 .PHONY: serve
