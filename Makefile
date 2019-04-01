@@ -2,10 +2,10 @@ node_bin := node_modules/.bin
 
 all : jekyll htmlproofer
 
-node_bin :
+$(node_bin) :
 	@yarn
 
-node-assets : node_bin
+node-assets : $(node_bin)
 	@node make-node-assets.js
 
 .PHONY: jekyll
