@@ -178,9 +178,8 @@
     margin: 0 0 0 -30px;
   }
 
-  .pure-menu-allow-hover:hover,
-  .pure-menu-allow-hover:focus,
-  .pure-menu-allow-hover:active {
+  .pure-menu-allow-hover:focus-within,
+  .pure-menu-allow-hover:hover {
     .pure-menu-children {
       position: absolute;
       display: block;
