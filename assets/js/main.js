@@ -2,119 +2,79 @@
 
 (function (document, window) {
   var navToggle = document.getElementById('nav-toggle');
+  var menuNavElem = document.getElementById('menu');
+  var subMenuHandlers = [];
+  var isHamburgerVisible;
 
-  var menuElement = document.getElementById('menu');
-
-  function stateHandler (openFn, closeFn) {
-    var lastStateChange = 0;
-    var opened = false;
+  function menuHandler (openFn, closeFn) {
+    var isMenuOpened = false;
     var handler = {};
 
-    /*
-     * `click` and `mouseenter` events could be fired together
-     * in that case we have to ensure at least 100 ms are passed
-     * before to update the state again.
-     */
     function updateState (newState) {
-      var now = Date.now();
-
-      if (now - lastStateChange > 100) {
-        newState ? openFn() : closeFn();
-        opened = newState;
-        lastStateChange = now;
-      }
+      newState ? openFn() : closeFn();
+      isMenuOpened = newState;
 
       return handler;
     }
 
+    handler.click = function () {
+      return isHamburgerVisible ? updateState(!isMenuOpened) : handler;
+    };
+
     handler.open = function () {
       return updateState(true);
-    }
+    };
 
     handler.close = function () {
       return updateState(false);
-    }
-
-    handler.toggle = function () {
-      return opened ? handler.close() : handler.open();
-    }
+    };
 
     return handler;
   }
 
-  function filterChildNodes (element, filterFn) {
-    return maybe.object(element.childNodes)
-      .map(function (childNodes) {
-        return [].filter.call(childNodes, filterFn);
+  var menuElemsWithChildren = document.querySelectorAll('#menu .pure-menu-has-children');
+
+  menuElemsWithChildren.forEach(function (subMenuElem) {
+    var menuChildren = subMenuElem.querySelectorAll('.pure-menu-children');
+    var menuLink = maybe.object(subMenuElem.querySelector('.pure-menu-link'));
+
+    function openSubMenu () {
+      menuChildren.forEach(function (node) {
+        node.classList.remove('hidden');
       });
-  }
 
-  function filterChildNodesByClass (element, classFilter) {
-    return filterChildNodes(element, function (child) {
-      var className = maybe.string(child.className).toString();
+      menuLink.forEach(function (node) {
+        node.classList.remove('collapsed-menu-container');
+        node.classList.add('expanded-menu-container');
+      });
+    }
 
-      return className.indexOf(classFilter) >= 0;
+    function closeSubMenu () {
+      menuChildren.forEach(function (node) {
+        node.classList.add('hidden');
+      });
+
+      menuLink.forEach(function (node) {
+        node.classList.remove('expanded-menu-container');
+        node.classList.add('collapsed-menu-container');
+      });
+    }
+
+    menuLink.forEach(function (menuLink) {
+      var subMenuState = menuHandler(openSubMenu, closeSubMenu);
+
+      subMenuHandlers.push(subMenuState);
+      menuLink.addEventListener('click', subMenuState.click);
     });
-  }
-
-  function getFirst (array) {
-    return array[0];
-  }
-
-  document.querySelectorAll('#menu .pure-menu-has-children')
-    .forEach(function (subMenuElement) {
-      var menuChildren = filterChildNodesByClass(subMenuElement, 'pure-menu-children')
-        .map(getFirst);
-
-      var menuLink = filterChildNodesByClass(subMenuElement, 'pure-menu-link')
-        .map(getFirst);
-
-      function openSubMenu () {
-        menuChildren.forEach(function (node) {
-          node.classList.remove('hidden');
-        });
-
-        menuLink.forEach(function (node) {
-          node.classList.remove('collapsed-menu-container');
-          node.classList.add('expanded-menu-container');
-        });
-      }
-
-      function closeSubMenu () {
-        menuChildren.forEach(function (node) {
-          node.classList.add('hidden');
-        });
-
-        menuLink.forEach(function (node) {
-          node.classList.remove('expanded-menu-container');
-          node.classList.add('collapsed-menu-container');
-        });
-      }
-
-      var subMenu = stateHandler(openSubMenu, closeSubMenu).close();
-
-      subMenuElement.addEventListener('click', function (event) {
-        subMenu.toggle();
-      });
-
-      subMenuElement.addEventListener('mouseenter', function (event) {
-        subMenu.open();
-      });
-
-      subMenuElement.addEventListener('mouseleave', function (event) {
-        subMenu.close();
-      });
-
-      return subMenu;
-    });
+  });
 
   function openMenu () {
     document.documentElement.scrollTop = 0;
 
     document.body.classList.add('scroll-lock');
     navToggle.classList.add('active');
-    menuElement.classList.remove('closed');
-    menuElement.classList.add('opened');
+    menuNavElem.classList.remove('closed');
+    menuNavElem.classList.add('opened');
 
     document.addEventListener('touchstart', handleTouchStart, false);
     document.addEventListener('touchmove', handleTouchMove, false);
@@ -122,24 +82,22 @@
   }
 
   function closeMenu () {
-    menuElement.style.transition = null;
-    menuElement.style.transform = null;
+    menuNavElem.style.transition = null;
+    menuNavElem.style.transform = null;
 
     document.body.classList.remove('scroll-lock');
     navToggle.classList.remove('active');
-    menuElement.classList.remove('opened');
-    menuElement.classList.add('closed');
+    menuNavElem.classList.remove('opened');
+    menuNavElem.classList.add('closed');
 
     document.removeEventListener('touchstart', handleTouchStart);
     document.removeEventListener('touchmove', handleTouchMove);
     document.removeEventListener('touchend', handleTouchEnd);
   }
 
-  var menu = stateHandler(openMenu, closeMenu);
+  var hamburgerHandler = menuHandler(openMenu, closeMenu);
 
-  navToggle.addEventListener('click', function (event) {
-    menu.toggle();
-  });
+  navToggle.addEventListener('click', hamburgerHandler.click);
 
   function point (x, y) {
     return { x: x, y: y };
@@ -158,7 +116,7 @@
     touch.from = maybe.just(touchEventToPoint(event));
     touch.to = maybe.nothing;
 
-    menuElement.style.transition = 'transform 0.3s';
+    menuNavElem.style.transition = 'transform 0.3s';
   }
 
   var minSwipeOffset = 10;
@@ -181,7 +139,7 @@
           swipeLength = 0;
         }
 
-        menuElement.style.transform = 'translateX(-' + swipeLength + 'px)';
+        menuNavElem.style.transform = 'translateX(-' + swipeLength + 'px)';
         touch.to = maybe.just(currentPoint);
       });
   }
@@ -196,10 +154,38 @@
       })
       .forEach(function (swipeLength) {
         if (swipeLength > 100) {
-          menu.close();
+          hamburgerHandler.close();
         } else {
-          menuElement.style.transform = null;
+          menuNavElem.style.transform = null;
         }
       });
   }
+
+  var sizeCheckScheduled;
+
+  function sizeCheck () {
+    sizeCheckScheduled = false;
+    isHamburgerVisible = navToggle.offsetHeight > 0;
+
+    if (isHamburgerVisible) {
+      subMenuHandlers.forEach(function (subMenuHandler) {
+        subMenuHandler.close();
+      });
+    } else {
+      subMenuHandlers.forEach(function (subMenuHandler) {
+        subMenuHandler.open();
+      });
+    }
+  }
+
+  sizeCheck();
+
+  window.addEventListener('resize', function () {
+    if (sizeCheckScheduled) {
+      return;
+    }
+
+    sizeCheckScheduled = true;
+    setTimeout(sizeCheck, 100);
+  });
 })(document, window);
