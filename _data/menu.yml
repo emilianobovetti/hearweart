@@ -25,6 +25,12 @@
     -
       name: Senkadagala School
       route: senkadagala-school
+    -
+      name: Evelyn Children Home <small class="lowercase">site</small>
+      route: https://www.stpaulschurchkandy.lk/evelyn-nurseries.html
+    -
+      name: Tree Breeze Inn <small class="lowercase">site</small>
+      route: https://tree-breeze-inn-lk.book.direct
 -
   name: Contact us
   route: contact-us
