@@ -20,6 +20,7 @@ htmlproofer :
 	@bundle exec htmlproofer _site \
 		--file-ignore /node-assets/ \
 		--disable-external \
+		--empty-alt-ignore \
 		--assume-extension \
 		--allow-hash-href \
 		--check-html
