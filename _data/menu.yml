@@ -14,11 +14,11 @@
   name: Projects
   childs:
     -
-      name: 2017 Pilot Program
-      route: 2017-pilot-program
-    -
       name: 2019 Workshops
       route: 2019-workshops
+    -
+      name: 2017 Pilot Program
+      route: 2017-pilot-program
 -
   name: Partners
   childs:
