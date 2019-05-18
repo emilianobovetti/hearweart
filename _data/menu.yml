@@ -17,12 +17,6 @@
       name: 2017 Pilot Program
       route: 2017-pilot-program
     -
-      name: 2017 Gallery
-      route: 2017-gallery
-    -
-      name: 2018 Workshops
-      route: 2018-workshops
-    -
       name: 2019 Workshops
       route: 2019-workshops
 -
