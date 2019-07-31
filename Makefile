@@ -8,6 +8,7 @@ $(node_bin) :
 	@yarn
 
 node-assets : $(node_bin)
+	@mkdir -p node-assets
 	@node make-node-assets.js
 
 .PHONY: jekyll
