@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "chart.js": "^2.9.3",
-    "lightgallery.js": "^1.1.3",
-    "purecss": "^1.0.0",
+    "lightgallery.js": "^1.2.0",
+    "purecss": "^2.0.3",
     "rellax": "^1.12.1",
     "stateless-maybe-js": "^2.2.3"
   },
   "devDependencies": {
-    "copy-dir": "^1.2.0",
-    "netlify-cli": "^2.40.0"
+    "copy-dir": "^1.3.0",
+    "netlify-cli": "^2.58.0"
   }
 }
