@@ -1,13 +1,13 @@
-.jekyll-metadata
-.sass-cache
-.netlify
-.bundle
+/.jekyll-metadata
+/.jekyll-cache
+/.sass-cache
+/.netlify
+/.bundle
 
-node-assets
+/node-assets
 
-yarn-error.log
-Gemfile.lock
+/yarn-error.log
 
-node_modules
-vendor
-_site
+/node_modules
+/vendor
+/_site

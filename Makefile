@@ -13,7 +13,8 @@ node-assets : $(node_bin)
 
 .PHONY: jekyll
 jekyll : node-assets
-	@bundle install --path vendor/bundle
+	@bundle config set path vendor/bundle
+	@bundle install
 	@bundle exec jekyll build
 
 .PHONY: htmlproofer
