@@ -10,7 +10,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.2.0"
 
-gem "html-proofer"
+gem "html-proofer", ">= 3.19.3"
 gem "jekyll-sitemap"
 gem "jekyll-seo-tag"
 
